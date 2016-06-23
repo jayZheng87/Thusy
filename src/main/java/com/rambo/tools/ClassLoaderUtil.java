@@ -212,6 +212,7 @@ public class ClassLoaderUtil {
      * @throws ClassInstantiationException 如果实例化失败
      */
     private static Object newInstance(Class<?> clazz) throws ClassInstantiationException {
+
         if (clazz == null) {
             return null;
         }
