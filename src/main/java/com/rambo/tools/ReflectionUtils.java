@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.rambo.tool;
+package com.rambo.tools;
 
 import java.lang.reflect.*;
 import java.sql.SQLException;
@@ -90,7 +90,7 @@ public abstract class ReflectionUtils {
         }
         catch (IllegalAccessException ex) {
             handleReflectionException(ex);
-            throw new IllegalStateException("Unexpected reflection exception - " + ex.getClass().getName() + ": "
+            throw new IllegalStateException("Unexpected reflection exceptions - " + ex.getClass().getName() + ": "
                     + ex.getMessage());
         }
     }
@@ -112,7 +112,7 @@ public abstract class ReflectionUtils {
         catch (IllegalAccessException ex) {
             handleReflectionException(ex);
             throw new IllegalStateException(
-                    "Unexpected reflection exception - " + ex.getClass().getName() + ": " + ex.getMessage());
+                    "Unexpected reflection exceptions - " + ex.getClass().getName() + ": " + ex.getMessage());
         }
     }
 
@@ -226,12 +226,12 @@ public abstract class ReflectionUtils {
     }
 
     /**
-     * Handle the given reflection exception. Should only be called if no
-     * checked exception is expected to be thrown by the target method.
+     * Handle the given reflection exceptions. Should only be called if no
+     * checked exceptions is expected to be thrown by the target method.
      * <p>Throws the underlying RuntimeException or Error in case of an
      * InvocationTargetException with such a root cause. Throws an
      * IllegalStateException with an appropriate message else.
-     * @param ex the reflection exception to handle
+     * @param ex the reflection exceptions to handle
      */
     public static void handleReflectionException(Exception ex) {
         if (ex instanceof NoSuchMethodException) {
@@ -250,26 +250,26 @@ public abstract class ReflectionUtils {
     }
 
     /**
-     * Handle the given invocation target exception. Should only be called if no
-     * checked exception is expected to be thrown by the target method.
+     * Handle the given invocation target exceptions. Should only be called if no
+     * checked exceptions is expected to be thrown by the target method.
      * <p>Throws the underlying RuntimeException or Error in case of such a root
      * cause. Throws an IllegalStateException else.
-     * @param ex the invocation target exception to handle
+     * @param ex the invocation target exceptions to handle
      */
     public static void handleInvocationTargetException(InvocationTargetException ex) {
         rethrowRuntimeException(ex.getTargetException());
     }
 
     /**
-     * Rethrow the given {@link Throwable exception}, which is presumably the
-     * <em>target exception</em> of an {@link InvocationTargetException}. Should
-     * only be called if no checked exception is expected to be thrown by the
+     * Rethrow the given {@link Throwable exceptions}, which is presumably the
+     * <em>target exceptions</em> of an {@link InvocationTargetException}. Should
+     * only be called if no checked exceptions is expected to be thrown by the
      * target method.
-     * <p>Rethrows the underlying exception cast to an {@link RuntimeException} or
+     * <p>Rethrows the underlying exceptions cast to an {@link RuntimeException} or
      * {@link Error} if appropriate; otherwise, throws an
      * {@link IllegalStateException}.
-     * @param ex the exception to rethrow
-     * @throws RuntimeException the rethrown exception
+     * @param ex the exceptions to rethrow
+     * @throws RuntimeException the rethrown exceptions
      */
     public static void rethrowRuntimeException(Throwable ex) {
         if (ex instanceof RuntimeException) {
@@ -282,15 +282,15 @@ public abstract class ReflectionUtils {
     }
 
     /**
-     * Rethrow the given {@link Throwable exception}, which is presumably the
-     * <em>target exception</em> of an {@link InvocationTargetException}. Should
-     * only be called if no checked exception is expected to be thrown by the
+     * Rethrow the given {@link Throwable exceptions}, which is presumably the
+     * <em>target exceptions</em> of an {@link InvocationTargetException}. Should
+     * only be called if no checked exceptions is expected to be thrown by the
      * target method.
-     * <p>Rethrows the underlying exception cast to an {@link Exception} or
+     * <p>Rethrows the underlying exceptions cast to an {@link Exception} or
      * {@link Error} if appropriate; otherwise, throws an
      * {@link IllegalStateException}.
-     * @param ex the exception to rethrow
-     * @throws Exception the rethrown exception (in case of a checked exception)
+     * @param ex the exceptions to rethrow
+     * @throws Exception the rethrown exceptions (in case of a checked exceptions)
      */
     public static void rethrowException(Throwable ex) throws Exception {
         if (ex instanceof Exception) {
@@ -304,11 +304,11 @@ public abstract class ReflectionUtils {
 
     /**
      * Determine whether the given method explicitly declares the given
-     * exception or one of its superclasses, which means that an exception of
+     * exceptions or one of its superclasses, which means that an exceptions of
      * that type can be propagated as-is within a reflective invocation.
      * @param method the declaring method
-     * @param exceptionType the exception to throw
-     * @return <code>true</code> if the exception can be thrown as-is;
+     * @param exceptionType the exceptions to throw
+     * @return <code>true</code> if the exceptions can be thrown as-is;
      * <code>false</code> if it needs to be wrapped
      */
     public static boolean declaresException(Method method, Class<?> exceptionType) {

@@ -13,10 +13,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.rambo.tool;
+package com.rambo.tools;
 
 
-import com.rambo.exception.ClassInstantiationException;
+import com.rambo.exceptions.ClassInstantiationException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,8 +26,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import static com.rambo.tool.CollectionUtil.createHashSet;
-import static com.rambo.tool.CollectionUtil.createLinkedList;
+import static com.rambo.tools.CollectionUtil.createHashSet;
+import static com.rambo.tools.CollectionUtil.createLinkedList;
 
 /**
  * <p>
@@ -200,7 +200,7 @@ public class ClassLoaderUtil {
      * @throws ClassInstantiationException 如果实例化失败
      */
     public static Object newInstance(String className, ClassLoader classLoader) throws ClassNotFoundException,
-            com.rambo.exception.ClassInstantiationException {
+            com.rambo.exceptions.ClassInstantiationException {
         return newInstance(loadClass(className, classLoader));
     }
 

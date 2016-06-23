@@ -1,4 +1,4 @@
-package com.rambo.tool;
+package com.rambo.tools;
 
 /**
  * Create by Yet on 2016/6/23

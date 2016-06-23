@@ -1,5 +1,5 @@
 
-package com.rambo.tool;
+package com.rambo.tools;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -94,7 +94,7 @@ public abstract class NumberUtil {
     }
 
     /**
-     * Raise an overflow exception for the given number and target class.
+     * Raise an overflow exceptions for the given number and target class.
      * @param number the number we tried to convert
      * @param targetClass the target class we tried to convert to
      */

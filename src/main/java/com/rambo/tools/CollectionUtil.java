@@ -1,4 +1,4 @@
-package com.rambo.tool;
+package com.rambo.tools;
 
 import org.apache.commons.lang.ArrayUtils;
 
