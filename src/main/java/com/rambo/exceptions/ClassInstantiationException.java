@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.ramboex.exceptions;
+package com.rambo.exceptions;
 
 /**
  * 代表实例化类时失败的异常。

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.ramboex.tools;
+package com.rambo.tools;
 
 
 import java.beans.Introspector;
@@ -26,12 +26,12 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static com.ramboex.tools.ArrayUtil.isArraySameLength;
-import static com.ramboex.tools.ArrayUtil.isEmptyArray;
-import static com.ramboex.tools.BasicConstant.EMPTY_CLASS_ARRAY;
-import static com.ramboex.tools.BasicConstant.EMPTY_STRING;
-import static com.ramboex.tools.CollectionUtil.createHashMap;
-import static com.ramboex.tools.CollectionUtil.createHashSet;
+import static com.rambo.tools.ArrayUtil.isArraySameLength;
+import static com.rambo.tools.ArrayUtil.isEmptyArray;
+import static com.rambo.tools.BasicConstant.EMPTY_CLASS_ARRAY;
+import static com.rambo.tools.BasicConstant.EMPTY_STRING;
+import static com.rambo.tools.CollectionUtil.createHashMap;
+import static com.rambo.tools.CollectionUtil.createHashSet;
 
 
 

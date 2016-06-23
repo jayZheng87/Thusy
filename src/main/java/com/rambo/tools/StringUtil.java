@@ -1,4 +1,4 @@
-package com.ramboex.tools;
+package com.rambo.tools;
 
 import java.util.UUID;
 

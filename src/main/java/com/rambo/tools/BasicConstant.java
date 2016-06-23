@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.ramboex.tools;
+package com.rambo.tools;
 
 import java.io.Serializable;
 

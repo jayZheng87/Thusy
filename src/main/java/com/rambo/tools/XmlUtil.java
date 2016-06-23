@@ -1,4 +1,4 @@
-package com.ramboex.tools;
+package com.rambo.tools;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
