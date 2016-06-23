@@ -1,0 +1,24 @@
+*.class
+
+# Package Files #
+
+*.war
+*.ear
+
+.project
+.classpath
+*.log
+target/
+target/*
+.settings/
+.settings/*
+*.iml
+
+.idea/
+bin/
+bin/*
+*.data
+*.bak
+
+/sdpm-web/temp
+/sdpm-web/sdpm
