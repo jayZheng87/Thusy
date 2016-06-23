@@ -19,6 +19,3 @@ bin/
 bin/*
 *.data
 *.bak
-
-/sdpm-web/temp
-/sdpm-web/sdpm
