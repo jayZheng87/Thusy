@@ -1,5 +1,5 @@
 
-package com.rambo.tools;
+package com.ramboex.tools;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

@@ -1,6 +1,6 @@
-package com.rambo.tools;
+package com.ramboex.tools;
 
-import com.rambo.exceptions.IllegalPathException;
+import com.ramboex.exceptions.IllegalPathException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.rambo.tools.StringUtil.trimToEmpty;
-import static com.rambo.tools.StringUtil.trimToNull;
+import static com.ramboex.tools.StringUtil.trimToEmpty;
+import static com.ramboex.tools.StringUtil.trimToNull;
 /**
  * Create by Yet on 2016/6/23
  **/

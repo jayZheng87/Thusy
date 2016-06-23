@@ -1,4 +1,4 @@
-package com.rambo.tools;
+package com.ramboex.tools;
 
 import org.apache.commons.lang.time.DateFormatUtils;
 

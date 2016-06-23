@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.rambo.tools;
+package com.ramboex.tools;
 
 import java.lang.reflect.*;
 import java.sql.SQLException;
