@@ -233,8 +233,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.setFirstDayOfWeek(Calendar.SUNDAY);
         calendar.setTime(date);
-        calendar.set(Calendar.DAY_OF_WEEK,
-                calendar.getFirstDayOfWeek()); // Sunday
+        calendar.set(Calendar.DAY_OF_WEEK, calendar.getFirstDayOfWeek()); // Sunday
         return calendar.getTime();
     }
 
@@ -248,8 +247,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.setFirstDayOfWeek(Calendar.SUNDAY);
         calendar.setTime(date);
-        calendar.set(Calendar.DAY_OF_WEEK,
-                calendar.getFirstDayOfWeek() + 6); // Saturday
+        calendar.set(Calendar.DAY_OF_WEEK, calendar.getFirstDayOfWeek() + 6); // Saturday
         return calendar.getTime();
     }
 
@@ -557,7 +555,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     }
 
     /**
-     *Description:获取当前上一季度
+     * Description:获取当前上一季度
      */
     public static int getLastQuarterOfYear(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -637,5 +635,71 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
      */
     public static int getDateInt(Date date) {
         return Integer.parseInt(DateFormatUtils.format(date, "yyyyMMdd"));
+    }
+
+    public static void main(String[] args) {
+        try {
+            Date nowDate = new Date();
+            Date lastDate = addYears(nowDate, -1);
+
+            System.out.println("01.已 yyyy-MM-dd 格式获取日期字符串：" + getDate());
+            System.out.println("02.已特定日期格式获取日期字符串：" + getDate("yyyyMMdd"));
+            System.out.println("03.已 yyyy-MM-dd HH:mm:ss 日期格式获取特定日期字符串：" + formatDateTime(nowDate));
+            System.out.println("04.已特定日期格式获取特定日期字符串：" + formatDate(nowDate, "yyyy-MM-dd-HH:mm:ss"));
+
+            System.out.println("05.获取当前时间小时分秒字符串：" + getTime());
+            System.out.println("06.获取当前时间全字符串：" + getDateTime());
+            System.out.println("07.获取当前年字符串：" + getYear());
+            System.out.println("08.获取去年字符串：" + getLastYear());
+            System.out.println("09.获取当前月字符串：" + getMonth());
+            System.out.println("10.获取上一月字符串：" + getLastMonth());
+            System.out.println("11.获取当前日字符串：" + getDay());
+            System.out.println("12.获取当前星期字符串：" + getWeek());
+            System.out.println("13.将日期型字符串转化为日期 格式：" + parseDate("yyyy-MM-dd HH:mm:ss"));
+            System.out.println("14.入参与当前时间对比获取过去的天数：" + pastDays(lastDate));
+            System.out.println("15.入参与当前时间对比获取过去的小时：" + pastHour(lastDate));
+            System.out.println("16.入参与当前时间对比获取过去的分钟：" + pastMinutes(lastDate));
+            System.out.println("17.长整型转换为时间（天,时:分:秒.毫秒）：" + formatDateTime(222222222));
+            System.out.println("18.获取两个日期之间相差的天数：" + getDistanceOfTwoDate(lastDate, new Date()));
+
+            System.out.println("19.获取指定日期年的第一天：" + formatDate(getFirstDayOfYear(nowDate)));
+            System.out.println("20.获取指定日期年的最后一天：" + formatDate(getLastDayOfYear(nowDate)));
+            System.out.println("22.获取指定日期上一年的第一天：" + formatDate(getFirstDayOfLastYear(nowDate)));
+            System.out.println("22.获取指定日期上一年的最后一天：" + formatDate(getLastDayOfLastYear(nowDate)));
+
+            System.out.println("23.得到某年某周的第一天：" + formatDate(getFirstDayOfWeek(2017, 7)));
+            System.out.println("24.得到某年某周的最后一天：" + formatDate(getLastDayOfWeek(2017, 5)));
+            System.out.println("25.得到指定日期所在周的第一天：" + formatDate(getFirstDayOfWeek(nowDate)));
+            System.out.println("26.获取指定日期所在周的最后一天：" + formatDate(getLastDayOfWeek(nowDate)));
+            System.out.println("27.获取指定日期上周最后一天：" + formatDate(getLastDayOfLastWeek(nowDate)));
+
+            System.out.println("28.获取指定日期月的第一天：" + formatDate(getFirstDayOfMonth(nowDate)));
+            System.out.println("29.获取指定日期月的最后一天：" + formatDate(getLastDayOfMonth(nowDate)));
+            System.out.println("30.获取指定日期上月第一天：" + formatDate(getFirstDayOfLastMonth(nowDate)));
+            System.out.println("31.获取指定日期上月最后一天：" + formatDate(getLastDayOfLastMonth(nowDate)));
+            System.out.println("32.获取某年某月的第一天：" + formatDate(getFirstDayOfMonth(2016, 11)));
+            System.out.println("33.获取某年某月的最后一天：" + formatDate(getLastDayOfMonth(2016, 11)));
+
+            System.out.println("34.获取指定日期季度第一天：" + formatDate(getFirstDayOfQuarter(nowDate)));
+            System.out.println("35.获取指定日期季度最后一天：" + formatDate(getLastDayOfQuarter(nowDate)));
+            System.out.println("36.获取某年某月对应季度第一天：" + formatDate(getFirstDayOfQuarter(2016, 1)));
+            System.out.println("37.获取某年某月对应季度最后一天：" + formatDate(getLastDayOfQuarter(2016, 2)));
+            System.out.println("38.获取指定季度上一季度第一天：" + formatDate(getFirstDayOfLastQuarter(nowDate)));
+            System.out.println("39.获取指定季度上一季度最后一天：" + formatDate(getLastDayOfLastQuarter(nowDate)));
+            System.out.println("40.获取某年某月对应上一季度第一天：" + formatDate(getFirstDayOfLastQuarter(2016, 3)));
+            System.out.println("41.获取某年某月对应上一季度最后一天：" + formatDate(getLastDayOfLastQuarter(2016, 4)));
+
+            System.out.println("42.获取指定日期季度：" + getQuarterOfYear(nowDate));
+            System.out.println("43.获取指定日期上一季度：" + getLastQuarterOfYear(nowDate));
+            System.out.println("44.获取指定日期开始：" + formatDate(getDateStart(nowDate), "yyyy-MM-dd HH:mm:ss"));
+            System.out.println("45.获取指定日期结束：" + formatDate(getDateEnd(nowDate), "yyyy-MM-dd HH:mm:ss"));
+            System.out.println("46.获取指定日期星期：" + getDateWeek(nowDate));
+            System.out.println("47.获取某年某周的第一天：" + formatDate(getBeginDate(2017, 2)));
+            System.out.println("48.获取某年某周的星期天：" + formatDate(getEndDate(2016, 1)));
+            System.out.println("49.获取指定日期字符串的整数：" + getDateInt("2016-07-14"));
+            System.out.println("50.获取指定日期的整数：" + getDateInt(nowDate));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
