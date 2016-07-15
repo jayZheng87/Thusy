@@ -5,6 +5,7 @@ import org.apache.commons.lang.ArrayUtils;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+@SuppressWarnings("unchecked")
 public final class CollectionUtil {
     public static <T> ArrayList<T> createArrayList() {
         return new ArrayList();
@@ -20,9 +21,7 @@ public final class CollectionUtil {
             list = new ArrayList((Collection) c);
         } else {
             list = new ArrayList();
-
             iterableToCollection(c, list);
-
             list.trimToSize();
         }
         return list;
