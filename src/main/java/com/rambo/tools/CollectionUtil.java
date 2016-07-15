@@ -7,14 +7,25 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @SuppressWarnings("unchecked")
 public final class CollectionUtil {
+
+    /**
+      *Description:实例化一个 arraylist,容量为10
+      */
     public static <T> ArrayList<T> createArrayList() {
         return new ArrayList();
     }
 
+    /**
+      *Description:实例化一个特定容量的 arraylist
+     * 不像数组的特定罐子，当容量超出设定，会自动扩容
+      */
     public static <T> ArrayList<T> createArrayList(int initialCapacity) {
         return new ArrayList(initialCapacity);
     }
 
+    /**
+      *Description:
+      */
     public static <T> ArrayList<T> createArrayList(Iterable<? extends T> c) {
         ArrayList<T> list;
         if ((c instanceof Collection)) {
@@ -27,6 +38,9 @@ public final class CollectionUtil {
         return list;
     }
 
+    /**
+      *Description：根据一个集合创建 arraylist,集合可以是 数组，list,map
+      */
     public static <T, V extends T> ArrayList<T> createArrayList(V... args) {
         if ((args == null) || (args.length == 0)) {
             return new ArrayList();
@@ -213,8 +227,36 @@ public final class CollectionUtil {
         return (String[]) list.toArray(ArrayUtils.EMPTY_STRING_ARRAY);
     }
 
+    /**
+      *Description:对象类型强转
+      */
     @SuppressWarnings("unchecked")
     public static <T> T cast(Object obj) {
         return (T) obj;
+    }
+
+    public static void main(String[] args) {
+        String[] array = new String[5];
+        array[0] = "AAAAAA";
+        array[1]= "BBBBBB";
+        array[2] = "CCCCCC";
+        array[3] = "DDDDDD";
+        array[4] = "EEEEEE";
+
+        ArrayList<String> arrayList = createArrayList();
+        for (String s : array) {
+            arrayList.add(s);
+        }
+        System.out.println("arrayList:" + arrayList);
+
+        ArrayList<String> arrayList1 = createArrayList(4);
+        for (String s : array) {
+            arrayList1.add(s);
+        }
+        System.out.println("arrayList1:" + arrayList1);
+
+        //根据 array 索引创建一个 arraylist
+        ArrayList<Object> arrayList2 = createArrayList(array);
+        System.out.println("arrayList2:" + arrayList2.toString());
     }
 }
