@@ -3,13 +3,20 @@ package com.rambo.tools;
 import java.util.UUID;
 
 /**
- * 字符串工具类:继承org.apache.commons.lang.time.DateUtils类
+ * 字符串工具类:继承org.apache.commons.lang.StringUtils
  **/
 public class StringUtil extends org.apache.commons.lang.StringUtils {
+
+    /**
+      *Description:除去空字符串，并
+      */
     public static String dealNull(String str) {
         return str == null ? "" : str.trim();
     }
 
+    /**
+      *Description:
+      */
     public static Object dealNull(Object str) {
         return str == null ? "" : str;
     }
