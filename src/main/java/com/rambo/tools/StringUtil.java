@@ -8,26 +8,34 @@ import java.util.UUID;
 public class StringUtil extends org.apache.commons.lang.StringUtils {
 
     /**
-      *Description:除去空字符串，并
+      *Description:除去空字符串，并消除两边空格
+     *
       */
     public static String dealNull(String str) {
         return str == null ? "" : str.trim();
     }
 
     /**
-      *Description:
+      *Description:除去空字符串，并消除两边空格
       */
     public static Object dealNull(Object str) {
         return str == null ? "" : str;
     }
 
-    public static String isNull(Object object) {
+    /**
+      *Description:将对象转化为字符串，用于特殊场景
+      */
+    public static String getStr(Object object) {
         if (object != null && object.toString().length() > 0) {
             return object.toString();
         }
         return "";
     }
 
+    /**
+      *Description:截取指定长度的字符串
+     * 与字符串 substring 方法相比，规避空字符串，长度不够截取等问题
+      */
     public static String getSubString(String sOurce, int len) {
         if (isEmpty(sOurce)) {
             return "";
@@ -38,20 +46,16 @@ public class StringUtil extends org.apache.commons.lang.StringUtils {
         return sOurce.substring(0, len);
     }
 
+    /**
+      *Description:字符串转换为 boolean
+      */
     public static boolean booleanValue(String tfString) {
         String trimmed = tfString.trim().toUpperCase();
         return (trimmed.equals("Y")) || (trimmed.equals("true"));
     }
 
     /**
-     * Description:获取文件后缀
-     */
-    public static String getFileSuffix(String filePath) {
-        return filePath.substring(filePath.lastIndexOf(".") + 1, filePath.length());
-    }
-
-    /**
-     * Description:报文数据，字符串转义
+     * Description:字符串转义， EJB xml 报文
      */
     public static String characterEscape(String str) {
         str = str.replaceAll("<", "&lt;");
@@ -64,6 +68,9 @@ public class StringUtil extends org.apache.commons.lang.StringUtils {
         return str;
     }
 
+    /**
+      *Description:去除字符串所有空格
+      */
     public static String trimAllWhitespace(String str) {
         if (!hasLength(str)) {
             return str;
@@ -81,6 +88,9 @@ public class StringUtil extends org.apache.commons.lang.StringUtils {
         return sb.toString();
     }
 
+    /**
+      *Description:字符串是否有长度
+      */
     public static boolean hasLength(CharSequence str) {
         return (str != null && str.length() > 0);
     }
@@ -89,6 +99,20 @@ public class StringUtil extends org.apache.commons.lang.StringUtils {
      * Description:获取UUID
      */
     public static String getUUID() {
-        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().toString();
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
+    }
+
+    public static void main(String[] args) {
+        String out = " hello word! String ";
+        Object out1 = " hello word!  Object ";
+
+        System.out.println("1. 去除空格和空字符串：" + dealNull(out));
+        System.out.println("2. 去除空格和空字符串：" + dealNull(out1));
+        System.out.println("3. 对象转字符串：" + getStr(out1));
+        System.out.println("4. 截取字符串：" + getSubString(out,36));
+        System.out.println("5. 字符串转换为 boolean：" + booleanValue("Y"));
+        System.out.println("6. 字符串是否有长度:" + hasLength(out));
+        System.out.println("7. 去除字符串所有空格:" + trimAllWhitespace(getStr(out1)));
+        System.out.println("8. 获取UUID：" + getUUID());
     }
 }

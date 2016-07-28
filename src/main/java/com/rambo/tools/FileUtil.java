@@ -586,4 +586,11 @@ public class FileUtil {
             return extension == null ? fileName : fileName + "." + extension;
         }
     }
+
+    /**
+     * Description:获取文件后缀
+     */
+    public static String getFileSuffix(String filePath) {
+        return filePath.substring(filePath.lastIndexOf(".") + 1, filePath.length());
+    }
 }
