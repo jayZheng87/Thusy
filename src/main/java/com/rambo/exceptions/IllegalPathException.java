@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guo@icloud.com).
+ *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
  *
  *  Licensed under the GPL, Version 3.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.rambo.exceptions;
 /**
  * 代表非法的路径的异常。
  *
- * @author renhui
+ * author renhui
  */
 public class IllegalPathException extends IllegalArgumentException {
     private static final long serialVersionUID = -3229134664162661189L;

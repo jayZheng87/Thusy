@@ -52,9 +52,9 @@ public class FileUtil {
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
      *
-     * @param path 要规格化的路径
-     * @return 规格化后的路径
-     * @throws IllegalPathException 如果路径非法
+     * param path 要规格化的路径
+     * return 规格化后的路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String normalizeAbsolutePath(String path) throws IllegalPathException {
         return normalizePath(path, true, false, false);
@@ -74,10 +74,10 @@ public class FileUtil {
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
      *
-     * @param path                要规格化的路径
-     * @param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
-     * @return 规格化后的路径
-     * @throws IllegalPathException 如果路径非法
+     * param path                要规格化的路径
+     * param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
+     * return 规格化后的路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String normalizeAbsolutePath(String path, boolean removeTrailingSlash) throws IllegalPathException {
         return normalizePath(path, true, false, removeTrailingSlash);
@@ -97,9 +97,9 @@ public class FileUtil {
      * <li>保留路径末尾的"/"（如果有的话，除了空路径）。</li>
      * </ol>
      *
-     * @param path 要规格化的路径
-     * @return 规格化后的路径
-     * @throws IllegalPathException 如果路径非法
+     * param path 要规格化的路径
+     * return 规格化后的路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String normalizeRelativePath(String path) throws IllegalPathException {
         return normalizePath(path, false, true, false);
@@ -119,10 +119,10 @@ public class FileUtil {
      * <li>保留路径末尾的"/"（如果有的话，除了空路径和强制指定<code>removeTrailingSlash==true</code>）。</li>
      * </ol>
      *
-     * @param path                要规格化的路径
-     * @param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
-     * @return 规格化后的路径
-     * @throws IllegalPathException 如果路径非法
+     * param path                要规格化的路径
+     * param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
+     * return 规格化后的路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String normalizeRelativePath(String path, boolean removeTrailingSlash) throws IllegalPathException {
         return normalizePath(path, false, true, removeTrailingSlash);
@@ -140,9 +140,9 @@ public class FileUtil {
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
      *
-     * @param path 要规格化的路径
-     * @return 规格化后的路径
-     * @throws IllegalPathException 如果路径非法
+     * param path 要规格化的路径
+     * return 规格化后的路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String normalizePath(String path) throws IllegalPathException {
         return normalizePath(path, false, false, false);
@@ -160,10 +160,10 @@ public class FileUtil {
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
      *
-     * @param path                要规格化的路径
-     * @param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
-     * @return 规格化后的路径
-     * @throws IllegalPathException 如果路径非法
+     * param path                要规格化的路径
+     * param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
+     * return 规格化后的路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String normalizePath(String path, boolean removeTrailingSlash) throws IllegalPathException {
         return normalizePath(path, false, false, removeTrailingSlash);
@@ -273,10 +273,10 @@ public class FileUtil {
     /**
      * 如果指定路径已经是绝对路径，则规格化后直接返回之，否则取得基于指定basedir的规格化路径。
      *
-     * @param basedir 根目录，如果<code>path</code>为相对路径，表示基于此目录
-     * @param path    要检查的路径
-     * @return 规格化的绝对路径
-     * @throws IllegalPathException 如果路径非法
+     * param basedir 根目录，如果<code>path</code>为相对路径，表示基于此目录
+     * param path    要检查的路径
+     * return 规格化的绝对路径
+     * throws IllegalPathException 如果路径非法
      */
     public static String getAbsolutePathBasedOn(String basedir, String path) throws IllegalPathException {
         // 如果path为绝对路径，则规格化后返回
@@ -304,7 +304,7 @@ public class FileUtil {
     /**
      * 取得和系统相关的绝对路径。
      *
-     * @throws IllegalPathException 如果basedir不是绝对路径
+     * throws IllegalPathException 如果basedir不是绝对路径
      */
     public static String getSystemDependentAbsolutePathBasedOn(String basedir, String path) {
         path = trimToEmpty(path);
@@ -344,11 +344,11 @@ public class FileUtil {
     /**
      * 取得相对于指定根目录的相对路径。
      *
-     * @param basedir 根目录
-     * @param path    要计算的路径
-     * @return 如果<code>path</code>和<code>basedir</code>是兼容的，则返回相对于
+     * param basedir 根目录
+     * param path    要计算的路径
+     * return 如果<code>path</code>和<code>basedir</code>是兼容的，则返回相对于
      *         <code>basedir</code>的相对路径，否则返回<code>path</code>本身。
-     * @throws IllegalPathException 如果路径非法
+     * throws IllegalPathException 如果路径非法
      */
     public static String getRelativePath(String basedir, String path) throws IllegalPathException {
         // 取得规格化的basedir，确保其为绝对路径
@@ -462,8 +462,8 @@ public class FileUtil {
     /**
      * 取得指定路径的名称和后缀。
      *
-     * @param path 路径
-     * @return 路径和后缀
+     * param path 路径
+     * return 路径和后缀
      */
     public static FileNameAndExtension getFileNameAndExtension(String path) {
         return getFileNameAndExtension(path, false);
@@ -472,8 +472,8 @@ public class FileUtil {
     /**
      * 取得指定路径的名称和后缀。
      *
-     * @param path 路径
-     * @return 路径和后缀
+     * param path 路径
+     * return 路径和后缀
      */
     public static FileNameAndExtension getFileNameAndExtension(String path, boolean extensionToLowerCase) {
         path = StringUtil.trimToEmpty(path);

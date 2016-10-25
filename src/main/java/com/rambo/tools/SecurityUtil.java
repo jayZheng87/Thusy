@@ -5,15 +5,15 @@ import org.apache.commons.codec.binary.Base64;
 import java.security.MessageDigest;
 
 /**
- * @ClassName: SecurityUtils
- * @Description: （安全相关的操作方法）
+ * ClassName: SecurityUtils
+ * Description: （安全相关的操作方法）
  */
 public class SecurityUtil {
 	private static char[] codec_table = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e',
 			'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/' };
 
 	/** 
-	* @Description: Base 64 位解密
+	* Description: Base 64 位解密
 	* eg: decodeStr("NjMwMTA0MDEyMTEwMDAyMDM5LDIwMTUwNg==")
 	*/
 	public static String toBase64Decode(String pwd) {
@@ -22,7 +22,7 @@ public class SecurityUtil {
 	}
 
 	/** 
-	* @Description: Base 64 加密
+	* Description: Base 64 加密
 	* eg:encodeStr("630104012110002039,201506")
 	*/
 	public static String toBase64Encode(String pwd) {
@@ -31,7 +31,7 @@ public class SecurityUtil {
 	}
 
 	/** 
-	* @Description: MD5 加密字符串
+	* Description: MD5 加密字符串
 	* eg: encryptMD5("nxccsoft2015")
 	*/
 	public static String encryptMD5(String s) throws Exception {
@@ -47,7 +47,7 @@ public class SecurityUtil {
 	}
 
 	/** 
-	* @Description: MD5 加密后的字符串进行对比
+	* Description: MD5 加密后的字符串进行对比
 	* eg:   checkMD5Str("nxccsoft2015", "1OrGLHIjO1wQJO+sXrM2gg==")
 	*/
 	public static boolean checkMD5Str(String s, String s1) throws Exception {
@@ -55,7 +55,7 @@ public class SecurityUtil {
 	}
 	
     /** 
-    * @Description: 自用 base64加密
+    * Description: 自用 base64加密
     */
     public static String encode(byte[] a) {   
         int totalBits = a.length * 8;   

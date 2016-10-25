@@ -19,8 +19,8 @@ public final class ZipUtil {
     /**
      * 压缩文件
      *
-     * @param filePath 待压缩的文件路径
-     * @return 压缩后的文件
+     * param filePath 待压缩的文件路径
+     * return 压缩后的文件
      */
     public static File zip(String filePath) {
         File target = null;
@@ -51,10 +51,10 @@ public final class ZipUtil {
     /**
      * 扫描添加文件Entry
      *
-     * @param base   基路径
-     * @param source 源文件
-     * @param zos    Zip文件输出流
-     * @throws IOException
+     * param base   基路径
+     * param source 源文件
+     * param zos    Zip文件输出流
+     * throws IOException
      */
     private static void addEntry(String base, File source, ZipOutputStream zos) throws IOException {
         String entry = (base != null) ? base + source.getName() : source.getName(); //按目录分级，形如：aaa/bbb.txt
@@ -87,7 +87,7 @@ public final class ZipUtil {
     /**
      * 解压文件
      *
-     * @param filePath 压缩文件路径
+     * param filePath 压缩文件路径
      */
     public static void unzip(String filePath) {
         File source = new File(filePath);
@@ -124,11 +124,11 @@ public final class ZipUtil {
     /**
      * 删除某个文件夹下的所有文件夹和文件
      *
-     * @param delpath
+     * param delpath
      *            String
-     * @throws FileNotFoundException
-     * @throws IOException
-     * @return boolean
+     * throws FileNotFoundException
+     * throws IOException
+     * return boolean
      */
     public static boolean deletefile(String delpath) throws Exception {
         File file = new File(delpath);

@@ -126,8 +126,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 获取过去的天数
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static long pastDays(Date date) {
         long t = new Date().getTime() - date.getTime();
@@ -137,8 +137,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 获取过去的小时
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static long pastHour(Date date) {
         long t = new Date().getTime() - date.getTime();
@@ -148,8 +148,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 获取过去的分钟
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static long pastMinutes(Date date) {
         long t = new Date().getTime() - date.getTime();
@@ -159,8 +159,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 转换为时间（天,时:分:秒.毫秒）
      *
-     * @param timeMillis
-     * @return
+     * param timeMillis
+     * return
      */
     public static String formatDateTime(long timeMillis) {
         long day = timeMillis / (24 * 60 * 60 * 1000);
@@ -174,9 +174,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 获取两个日期之间的天数
      *
-     * @param before
-     * @param after
-     * @return
+     * param before
+     * param after
+     * return
      */
     public static double getDistanceOfTwoDate(Date before, Date after) {
         long beforeTime = before.getTime();
@@ -187,9 +187,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 得到某年某周的第一天
      *
-     * @param year
-     * @param week
-     * @return
+     * param year
+     * param week
+     * return
      */
     public static Date getFirstDayOfWeek(int year, int week) {
         week = week - 1;
@@ -207,9 +207,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 得到某年某周的最后一天
      *
-     * @param year
-     * @param week
-     * @return
+     * param year
+     * param week
+     * return
      */
     public static Date getLastDayOfWeek(int year, int week) {
         week = week - 1;
@@ -226,8 +226,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 取得当前日期所在周的第一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getFirstDayOfWeek(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -240,8 +240,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 取得当前日期所在周的最后一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getLastDayOfWeek(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -254,8 +254,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 取得当前日期所在周的前一周最后一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getLastDayOfLastWeek(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -267,8 +267,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定日期的月的第一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getFirstDayOfMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -321,9 +321,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定年月的月的第一天
      *
-     * @param year
-     * @param month
-     * @return
+     * param year
+     * param month
+     * return
      */
     public static Date getFirstDayOfMonth(Integer year, Integer month) {
         Calendar calendar = Calendar.getInstance();
@@ -340,8 +340,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定日期的月的最后一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getLastDayOfMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -355,9 +355,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定年月的月的最后一天
      *
-     * @param year
-     * @param month
-     * @return
+     * param year
+     * param month
+     * return
      */
     public static Date getLastDayOfMonth(Integer year, Integer month) {
         Calendar calendar = Calendar.getInstance();
@@ -383,8 +383,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定日期的上个月的最后一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getLastDayOfLastMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -397,8 +397,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定日期的季的第一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getFirstDayOfQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -410,9 +410,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定年季的季的第一天
      *
-     * @param year
-     * @param quarter
-     * @return
+     * param year
+     * param quarter
+     * return
      */
     public static Date getFirstDayOfQuarter(Integer year, Integer quarter) {
         Calendar calendar = Calendar.getInstance();
@@ -434,8 +434,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回当前日期的季的最后一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getLastDayOfQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -447,9 +447,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定年季的季的最后一天
      *
-     * @param year
-     * @param quarter
-     * @return
+     * param year
+     * param quarter
+     * return
      */
     public static Date getLastDayOfQuarter(Integer year, Integer quarter) {
         Calendar calendar = Calendar.getInstance();
@@ -471,8 +471,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回当前日期的季的第一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getFirstDayOfLastQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -484,8 +484,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定日期的上一季的最后一天
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static Date getLastDayOfLastQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -497,9 +497,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定年季的上一季的最后一天
      *
-     * @param year
-     * @param quarter
-     * @return
+     * param year
+     * param quarter
+     * return
      */
     public static Date getLastDayOfLastQuarter(Integer year, Integer quarter) {
         Calendar calendar = Calendar.getInstance();
@@ -521,9 +521,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定年季的上一季的第一天
      *
-     * @param year
-     * @param quarter
-     * @return
+     * param year
+     * param quarter
+     * return
      */
     public static Date getFirstDayOfLastQuarter(Integer year, Integer quarter) {
         Calendar calendar = Calendar.getInstance();
@@ -545,8 +545,8 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 返回指定日期的季度
      *
-     * @param date
-     * @return
+     * param date
+     * return
      */
     public static int getQuarterOfYear(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -593,9 +593,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 获取某年某周的星期一
      *
-     * @param y
-     * @param w
-     * @return
+     * param y
+     * param w
+     * return
      */
     public static Date getBeginDate(Integer y, Integer w) {
         Calendar calendar = Calendar.getInstance();
@@ -610,9 +610,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     /**
      * 获取某年某周的星期天
      *
-     * @param y
-     * @param w
-     * @return
+     * param y
+     * param w
+     * return
      */
     public static Date getEndDate(Integer y, Integer w) {
         Date beginDate = getBeginDate(y, w);
@@ -636,6 +636,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     public static int getDateInt(Date date) {
         return Integer.parseInt(DateFormatUtils.format(date, "yyyyMMdd"));
     }
+
 
     public static void main(String[] args) {
         try {

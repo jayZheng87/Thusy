@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guo@icloud.com).
+ *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
  *
  *  Licensed under the GPL, Version 3.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ import static com.rambo.tools.CollectionUtil.createHashSet;
  * <code>NullPointerException</code>。
  * </p>
 
- * @author renhui
+ * author renhui
  *
  */
 public class ClassUtil {
@@ -64,9 +64,9 @@ public class ClassUtil {
 
     /**
      * 从接口端计算深度
-     * @param pInterface
-     * @param targetClass
-     * @return
+     * param pInterface
+     * param targetClass
+     * return
      */
     public static int checkInterfaceDeepth(Class<?> pInterface,
                                            Class<?> targetClass) {
@@ -85,9 +85,9 @@ public class ClassUtil {
     }
 
     /**
-     * @param supperClass
-     * @param targetClass
-     * @return
+     * param supperClass
+     * param targetClass
+     * return
      */
     public static int checkSupperClassDeepth(Class<?> supperClass,
                                              Class<?> targetClass) {
@@ -108,8 +108,8 @@ public class ClassUtil {
     /**
      * 采取驼峰规则
      *
-     * @param simpleName
-     * @return
+     * param simpleName
+     * return
      */
     public static <T> String humpString(Class<T> clazz) {
         String simpleName = clazz.getSimpleName();
@@ -141,8 +141,8 @@ public class ClassUtil {
      * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
      *
-     * @param object 要显示类名的对象
-     * @return 用于显示的友好类名，如果对象为空，则返回<code>null</code>
+     * param object 要显示类名的对象
+     * return 用于显示的友好类名，如果对象为空，则返回<code>null</code>
      */
     public static String getFriendlyClassNameForObject(Object object) {
         if (object == null) {
@@ -174,8 +174,8 @@ public class ClassUtil {
      * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
      *
-     * @param object 要显示类名的对象
-     * @return 用于显示的友好类名，如果类对象为空，则返回<code>null</code>
+     * param object 要显示类名的对象
+     * return 用于显示的友好类名，如果类对象为空，则返回<code>null</code>
      */
     public static String getFriendlyClassName(Class<?> clazz) {
         if (clazz == null) {
@@ -208,8 +208,8 @@ public class ClassUtil {
      * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
      *
-     * @param javaClassName 要转换的类名
-     * @return 用于显示的友好类名，如果原类名为空，则返回 <code>null</code> ，如果原类名是非法的，则返回原类名
+     * param javaClassName 要转换的类名
+     * return 用于显示的友好类名，如果原类名为空，则返回 <code>null</code> ，如果原类名是非法的，则返回原类名
      */
     public static String getFriendlyClassName(String javaClassName) {
         return toFriendlyClassName(javaClassName, true, javaClassName);
@@ -218,9 +218,9 @@ public class ClassUtil {
     /**
      * 将Java类名转换成友好类名。
      *
-     * @param javaClassName     Java类名
-     * @param processInnerClass 是否将内联类分隔符 <code>'$'</code> 转换成 <code>'.'</code>
-     * @return 友好的类名。如果参数非法或空，则返回<code>null</code>。
+     * param javaClassName     Java类名
+     * param processInnerClass 是否将内联类分隔符 <code>'$'</code> 转换成 <code>'.'</code>
+     * return 友好的类名。如果参数非法或空，则返回<code>null</code>。
      */
     private static String toFriendlyClassName(String javaClassName, boolean processInnerClass, String defaultIfInvalid) {
         String name = StringUtil.trimToNull(javaClassName);
@@ -322,8 +322,8 @@ public class ClassUtil {
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
      *
-     * @param object 要查看的对象
-     * @return 简单类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
+     * param object 要查看的对象
+     * return 简单类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getSimpleClassNameForObject(Object object) {
         if (object == null) {
@@ -347,8 +347,8 @@ public class ClassUtil {
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
      *
-     * @param object 要查看的对象
-     * @return 简单类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
+     * param object 要查看的对象
+     * return 简单类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getSimpleClassNameForObject(Object object, boolean processInnerClass) {
         if (object == null) {
@@ -373,8 +373,8 @@ public class ClassUtil {
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
      *
-     * @param clazz 要查看的类
-     * @return 简单类名，如果类为 <code>null</code> ，则返回 <code>null</code>
+     * param clazz 要查看的类
+     * return 简单类名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getSimpleClassName(Class<?> clazz) {
         if (clazz == null) {
@@ -399,8 +399,8 @@ public class ClassUtil {
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
      *
-     * @param clazz 要查看的类
-     * @return 简单类名，如果类为 <code>null</code> ，则返回 <code>null</code>
+     * param clazz 要查看的类
+     * return 简单类名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getSimpleClassName(Class<?> clazz, boolean proccessInnerClass) {
         if (clazz == null) {
@@ -425,8 +425,8 @@ public class ClassUtil {
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
      *
-     * @param javaClassName 要查看的类名
-     * @return 简单类名，如果类名为空，则返回 <code>null</code>
+     * param javaClassName 要查看的类名
+     * return 简单类名，如果类名为空，则返回 <code>null</code>
      */
     public static String getSimpleClassName(String javaClassName) {
         return getSimpleClassName(javaClassName, true);
@@ -447,8 +447,8 @@ public class ClassUtil {
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
      *
-     * @param javaClassName 要查看的类名
-     * @return 简单类名，如果类名为空，则返回 <code>null</code>
+     * param javaClassName 要查看的类名
+     * return 简单类名，如果类名为空，则返回 <code>null</code>
      */
     public static String getSimpleClassName(String javaClassName, boolean proccesInnerClass) {
         String friendlyClassName = toFriendlyClassName(javaClassName, false, null);
@@ -550,8 +550,8 @@ public class ClassUtil {
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param object 要查看的对象
-     * @return package名，如果对象为 <code>null</code> ，则返回<code>""</code>
+     * param object 要查看的对象
+     * return package名，如果对象为 <code>null</code> ，则返回<code>""</code>
      */
     public static String getPackageNameForObject(Object object) {
         if (object == null) {
@@ -567,8 +567,8 @@ public class ClassUtil {
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param clazz 要查看的类
-     * @return package名，如果类为 <code>null</code> ，则返回<code>""</code>
+     * param clazz 要查看的类
+     * return package名，如果类为 <code>null</code> ，则返回<code>""</code>
      */
     public static String getPackageName(Class<?> clazz) {
         if (clazz == null) {
@@ -584,8 +584,8 @@ public class ClassUtil {
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param javaClassName 要查看的类名
-     * @return package名，如果类名为空，则返回 <code>null</code>
+     * param javaClassName 要查看的类名
+     * return package名，如果类名为空，则返回 <code>null</code>
      */
     public static String getPackageName(String javaClassName) {
         String friendlyClassName = toFriendlyClassName(javaClassName, false, null);
@@ -622,8 +622,8 @@ public class ClassUtil {
      * ClassUtil.getResourceNameForObjectClass(&quot;This is a string&quot;) = &quot;java/lang/String.class&quot;
      * </pre>
      *
-     * @param object 要显示类名的对象
-     * @return 指定对象所属类的资源名，如果对象为空，则返回<code>null</code>
+     * param object 要显示类名的对象
+     * return 指定对象所属类的资源名，如果对象为空，则返回<code>null</code>
      */
     public static String getResourceNameForObjectClass(Object object) {
         if (object == null) {
@@ -643,8 +643,8 @@ public class ClassUtil {
      * ClassUtil.getResourceNameForClass(String.class) = &quot;java/lang/String.class&quot;
      * </pre>
      *
-     * @param clazz 要显示类名的类
-     * @return 指定类的资源名，如果指定类为空，则返回<code>null</code>
+     * param clazz 要显示类名的类
+     * return 指定类的资源名，如果指定类为空，则返回<code>null</code>
      */
     public static String getResourceNameForClass(Class<?> clazz) {
         if (clazz == null) {
@@ -664,8 +664,8 @@ public class ClassUtil {
      * ClassUtil.getResourceNameForClass(&quot;java.lang.String&quot;) = &quot;java/lang/String.class&quot;
      * </pre>
      *
-     * @param className 要显示的类名
-     * @return 指定类名对应的资源名，如果指定类名为空，则返回<code>null</code>
+     * param className 要显示的类名
+     * return 指定类名对应的资源名，如果指定类名为空，则返回<code>null</code>
      */
     public static String getResourceNameForClass(String className) {
         if (className == null) {
@@ -681,8 +681,8 @@ public class ClassUtil {
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param object 要查看的对象
-     * @return package名，如果对象为 <code>null</code> ，则返回 <code>null</code>
+     * param object 要查看的对象
+     * return package名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getResourceNameForObjectPackage(Object object) {
         if (object == null) {
@@ -698,8 +698,8 @@ public class ClassUtil {
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param clazz 要查看的类
-     * @return package名，如果类为 <code>null</code> ，则返回 <code>null</code>
+     * param clazz 要查看的类
+     * return package名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getResourceNameForPackage(Class<?> clazz) {
         if (clazz == null) {
@@ -715,8 +715,8 @@ public class ClassUtil {
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param className 要查看的类名
-     * @return package名，如果类名为空，则返回 <code>null</code>
+     * param className 要查看的类名
+     * return package名，如果类名为空，则返回 <code>null</code>
      */
     public static String getResourceNameForPackage(String className) {
         if (className == null) {
@@ -733,8 +733,8 @@ public class ClassUtil {
     /**
      * 取得指定一维数组类.
      *
-     * @param componentType 数组的基础类
-     * @return 数组类，如果数组的基类为 <code>null</code> ，则返回 <code>null</code>
+     * param componentType 数组的基础类
+     * return 数组类，如果数组的基类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static Class<?> getArrayClass(Class<?> componentType) {
         return getArrayClass(componentType, 1);
@@ -743,8 +743,8 @@ public class ClassUtil {
     /**
      * 取得指定维数的 <code>Array</code>类.
      *
-     * @param dimension     维数，如果小于 <code>0</code> 则看作 <code>0</code>
-     * @return 如果维数为0, 则返回基类本身, 否则返回数组类，如果数组的基类为 <code>null</code> ，则返回
+     * param dimension     维数，如果小于 <code>0</code> 则看作 <code>0</code>
+     * return 如果维数为0, 则返回基类本身, 否则返回数组类，如果数组的基类为 <code>null</code> ，则返回
      *         <code>null</code>
      */
     public static Class<?> getArrayClass(Class<?> componentClass, int dimension) {
@@ -929,9 +929,9 @@ public class ClassUtil {
      * </ol>
      * </p>
      *
-     * @param classes     目标类型列表，如果是 <code>null</code> 总是返回 <code>false</code>
-     * @param fromClasses 参数类型列表， <code>null</code> 表示可赋值给任意非原子类型
-     * @return 如果可以被赋值，则返回 <code>true</code>
+     * param classes     目标类型列表，如果是 <code>null</code> 总是返回 <code>false</code>
+     * param fromClasses 参数类型列表， <code>null</code> 表示可赋值给任意非原子类型
+     * return 如果可以被赋值，则返回 <code>true</code>
      */
     public static boolean isAssignable(Class<?>[] classes, Class<?>[] fromClasses) {
         if (!isArraySameLength(fromClasses, classes)) {
@@ -985,9 +985,9 @@ public class ClassUtil {
      * </ol>
      * </p>
      *
-     * @param clazz     目标类型，如果是 <code>null</code> 总是返回 <code>false</code>
-     * @param fromClass 参数类型， <code>null</code> 表示可赋值给任意非原子类型
-     * @return 如果可以被赋值，则返回 <code>null</code>
+     * param clazz     目标类型，如果是 <code>null</code> 总是返回 <code>false</code>
+     * param fromClass 参数类型， <code>null</code> 表示可赋值给任意非原子类型
+     * return 如果可以被赋值，则返回 <code>null</code>
      */
     public static boolean isAssignable(Class<?> clazz, Class<?> fromClass) {
         if (clazz == null) {
@@ -1094,9 +1094,9 @@ public class ClassUtil {
 
     /** Return the short string name of a Java class in uncapitalized JavaBeans
      * property format. Strips the outer class name in case of an inner class.
-     * @param clazz the class
-     * @return the short name rendered in a standard JavaBeans property format
-     * @see java.beans.Introspector#decapitalize(String)
+     * param clazz the class
+     * return the short name rendered in a standard JavaBeans property format
+     * see java.beans.Introspector#decapitalize(String)
      */
     public static String getShortNameAsProperty(Class<?> clazz) {
         String shortName = ClassUtil.getShortName(clazz);
@@ -1106,9 +1106,9 @@ public class ClassUtil {
     }
     /**
      * Get the class name without the qualified package name.
-     * @param className the className to get the short name for
-     * @return the class name of the class without the package name
-     * @throws IllegalArgumentException if the className is empty
+     * param className the className to get the short name for
+     * return the class name of the class without the package name
+     * throws IllegalArgumentException if the className is empty
      */
     public static String getShortName(String className) {
         int lastDotIndex = className.lastIndexOf(PACKAGE_SEPARATOR);
@@ -1122,8 +1122,8 @@ public class ClassUtil {
     }
     /**
      * Get the class name without the qualified package name.
-     * @param clazz the class to get the short name for
-     * @return the class name of the class without the package name
+     * param clazz the class to get the short name for
+     * return the class name of the class without the package name
      */
     public static String getShortName(Class<?> clazz) {
         return getShortName(getQualifiedName(clazz));
@@ -1131,8 +1131,8 @@ public class ClassUtil {
     /**
      * Return the qualified name of the given class: usually simply
      * the class name, but component type class name + "[]" for arrays.
-     * @param clazz the class
-     * @return the qualified name of the class
+     * param clazz the class
+     * return the qualified name of the class
      */
     public static String getQualifiedName(Class<?> clazz) {
         if (clazz.isArray()) {
@@ -1146,8 +1146,8 @@ public class ClassUtil {
     /**
      * Build a nice qualified name for an array:
      * component type class name + "[]".
-     * @param clazz the array class
-     * @return a qualified name for the array class
+     * param clazz the array class
+     * return a qualified name for the array class
      */
     private static String getQualifiedNameForArray(Class<?> clazz) {
         StringBuilder result = new StringBuilder();
@@ -1162,8 +1162,8 @@ public class ClassUtil {
     /**
      * Return the qualified name of the given method, consisting of
      * fully qualified interface/class name + "." + method name.
-     * @param method the method
-     * @return the qualified name of the method
+     * param method the method
+     * return the qualified name of the method
      */
     public static String getQualifiedMethodName(Method method) {
         return method.getDeclaringClass().getName() + "." + method.getName();
@@ -1172,8 +1172,8 @@ public class ClassUtil {
     /**
      * Return all interfaces that the given instance implements as array,
      * including ones implemented by superclasses.
-     * @param instance the instance to analyze for interfaces
-     * @return all interfaces that the given instance implements as array
+     * param instance the instance to analyze for interfaces
+     * return all interfaces that the given instance implements as array
      */
     public static Class[] getAllInterfaces(Object instance) {
         return getAllInterfacesForClass(instance.getClass());
@@ -1183,8 +1183,8 @@ public class ClassUtil {
      * Return all interfaces that the given class implements as array,
      * including ones implemented by superclasses.
      * <p>If the class itself is an interface, it gets returned as sole interface.
-     * @param clazz the class to analyze for interfaces
-     * @return all interfaces that the given object implements as array
+     * param clazz the class to analyze for interfaces
+     * return all interfaces that the given object implements as array
      */
     public static Class<?>[] getAllInterfacesForClass(Class<?> clazz) {
         return getAllInterfacesForClass(clazz, null);
@@ -1194,10 +1194,10 @@ public class ClassUtil {
      * Return all interfaces that the given class implements as array,
      * including ones implemented by superclasses.
      * <p>If the class itself is an interface, it gets returned as sole interface.
-     * @param clazz the class to analyze for interfaces
-     * @param classLoader the ClassLoader that the interfaces need to be visible in
+     * param clazz the class to analyze for interfaces
+     * param classLoader the ClassLoader that the interfaces need to be visible in
      * (may be <code>null</code> when accepting all declared interfaces)
-     * @return all interfaces that the given object implements as array
+     * return all interfaces that the given object implements as array
      */
     public static Class<?>[] getAllInterfacesForClass(Class<?> clazz, ClassLoader classLoader) {
         Set<Class> ifcs = getAllInterfacesForClassAsSet(clazz, classLoader);
@@ -1207,8 +1207,8 @@ public class ClassUtil {
     /**
      * Return all interfaces that the given instance implements as Set,
      * including ones implemented by superclasses.
-     * @param instance the instance to analyze for interfaces
-     * @return all interfaces that the given instance implements as Set
+     * param instance the instance to analyze for interfaces
+     * return all interfaces that the given instance implements as Set
      */
     public static Set<Class> getAllInterfacesAsSet(Object instance) {
         return getAllInterfacesForClassAsSet(instance.getClass());
@@ -1218,8 +1218,8 @@ public class ClassUtil {
      * Return all interfaces that the given class implements as Set,
      * including ones implemented by superclasses.
      * <p>If the class itself is an interface, it gets returned as sole interface.
-     * @param clazz the class to analyze for interfaces
-     * @return all interfaces that the given object implements as Set
+     * param clazz the class to analyze for interfaces
+     * return all interfaces that the given object implements as Set
      */
     public static Set<Class> getAllInterfacesForClassAsSet(Class clazz) {
         return getAllInterfacesForClassAsSet(clazz, null);
@@ -1229,10 +1229,10 @@ public class ClassUtil {
      * Return all interfaces that the given class implements as Set,
      * including ones implemented by superclasses.
      * <p>If the class itself is an interface, it gets returned as sole interface.
-     * @param clazz the class to analyze for interfaces
-     * @param classLoader the ClassLoader that the interfaces need to be visible in
+     * param clazz the class to analyze for interfaces
+     * param classLoader the ClassLoader that the interfaces need to be visible in
      * (may be <code>null</code> when accepting all declared interfaces)
-     * @return all interfaces that the given object implements as Set
+     * return all interfaces that the given object implements as Set
      */
     public static Set<Class> getAllInterfacesForClassAsSet(Class clazz, ClassLoader classLoader) {
         if (clazz.isInterface() && isVisible(clazz, classLoader)) {
@@ -1250,8 +1250,8 @@ public class ClassUtil {
     }
     /**
      * Check whether the given class is visible in the given ClassLoader.
-     * @param clazz the class to check (typically an interface)
-     * @param classLoader the ClassLoader to check against (may be <code>null</code>,
+     * param clazz the class to check (typically an interface)
+     * param classLoader the ClassLoader to check against (may be <code>null</code>,
      * in which case this method will always return <code>true</code>)
      */
     public static boolean isVisible(Class<?> clazz, ClassLoader classLoader) {
@@ -1272,8 +1272,8 @@ public class ClassUtil {
     /**
      * Determine the name of the class file, relative to the containing
      * package: e.g. "String.class"
-     * @param clazz the class
-     * @return the file name of the ".class" file
+     * param clazz the class
+     * return the file name of the ".class" file
      */
     public static String getClassFileName(Class clazz) {
         String className = clazz.getName();
@@ -1283,8 +1283,8 @@ public class ClassUtil {
 
     /**
      * 判断该类型是不是包装类型
-     * @param clazz
-     * @return
+     * param clazz
+     * return
      */
     public static boolean isBasicClass(Class<?> clazz) {
         boolean isPrimitive = false;

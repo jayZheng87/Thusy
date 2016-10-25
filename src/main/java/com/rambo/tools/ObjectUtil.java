@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guo@icloud.com).
+ *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
  *
  *  Licensed under the GPL, Version 3.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import static com.rambo.tools.BasicConstant.EMPTY_STRING;
  * 这个类中的每个方法都可以“安全”地处理<code>null</code>，而不会抛出<code>NullPointerException</code>。
  * </p>
  *
- * @author renhui
+ * author renhui
  */
 public class ObjectUtil {
 
@@ -56,9 +56,9 @@ public class ObjectUtil {
      * <p/>
      * </p>
      *
-     * @param object1 对象1
-     * @param object2 对象2
-     * @return 如果相等, 则返回<code>true</code>
+     * param object1 对象1
+     * param object2 对象2
+     * return 如果相等, 则返回<code>true</code>
      */
     public static boolean isEquals(Object object1, Object object2) {
         if (object1 == object2) {
@@ -99,9 +99,9 @@ public class ObjectUtil {
     /**
      * 检查两个对象是否属于相同类型。<code>null</code>将被看作任意类型。
      *
-     * @param object1 对象1
-     * @param object2 对象2
-     * @return 如果两个对象有相同的类型，则返回<code>true</code>
+     * param object1 对象1
+     * param object2 对象2
+     * return 如果两个对象有相同的类型，则返回<code>true</code>
      */
     public static boolean isSameType(Object object1, Object object2) {
         if (object1 == null || object2 == null) {
@@ -122,9 +122,9 @@ public class ObjectUtil {
      * ObjectUtil.defaultIfNull(Boolean.TRUE, *) = Boolean.TRUE
      * </pre>
      *
-     * @param object       要测试的对象
-     * @param defaultValue 默认值
-     * @return 对象本身或默认对象
+     * param object       要测试的对象
+     * param defaultValue 默认值
+     * return 对象本身或默认对象
      */
     public static <T, S extends T> T defaultIfNull(T object, S defaultValue) {
         return object == null ? defaultValue : object;
@@ -160,8 +160,8 @@ public class ObjectUtil {
      * 此方法可以正确地处理多维数组。
      * </p>
      *
-     * @param object 对象
-     * @return hash值
+     * param object 对象
+     * return hash值
      */
     public static int hashCode(Object object) {
         if (object == null) {
@@ -200,8 +200,8 @@ public class ObjectUtil {
      * <code>hashCode</code>方法的影响。
      * </p>
      *
-     * @param object 对象
-     * @return hash值
+     * param object 对象
+     * return hash值
      */
     public static int identityHashCode(Object object) {
         return object == null ? 0 : System.identityHashCode(object);
@@ -213,14 +213,14 @@ public class ObjectUtil {
      * <p/>
      * <pre>
      * ObjectUtil.identityToString(null)          = null
-     * ObjectUtil.identityToString("")            = "java.lang.String@1e23"
-     * ObjectUtil.identityToString(Boolean.TRUE)  = "java.lang.Boolean@7fa"
-     * ObjectUtil.identityToString(new int[0])    = "int[]@7fa"
-     * ObjectUtil.identityToString(new Object[0]) = "java.lang.Object[]@7fa"
+     * ObjectUtil.identityToString("")            = "java.lang.String1e23"
+     * ObjectUtil.identityToString(Boolean.TRUE)  = "java.lang.Boolean7fa"
+     * ObjectUtil.identityToString(new int[0])    = "int[]7fa"
+     * ObjectUtil.identityToString(new Object[0]) = "java.lang.Object[]7fa"
      * </pre>
      *
-     * @param object 对象
-     * @return 对象的identity，如果对象是<code>null</code>，则返回<code>null</code>
+     * param object 对象
+     * return 对象的identity，如果对象是<code>null</code>，则返回<code>null</code>
      */
     public static String identityToString(Object object) {
         if (object == null) {
@@ -236,15 +236,15 @@ public class ObjectUtil {
      * <p/>
      * <pre>
      * ObjectUtil.identityToString(null, "NULL")            = "NULL"
-     * ObjectUtil.identityToString("", "NULL")              = "java.lang.String@1e23"
-     * ObjectUtil.identityToString(Boolean.TRUE, "NULL")    = "java.lang.Boolean@7fa"
-     * ObjectUtil.identityToString(new int[0], "NULL")      = "int[]@7fa"
-     * ObjectUtil.identityToString(new Object[0], "NULL")   = "java.lang.Object[]@7fa"
+     * ObjectUtil.identityToString("", "NULL")              = "java.lang.String1e23"
+     * ObjectUtil.identityToString(Boolean.TRUE, "NULL")    = "java.lang.Boolean7fa"
+     * ObjectUtil.identityToString(new int[0], "NULL")      = "int[]7fa"
+     * ObjectUtil.identityToString(new Object[0], "NULL")   = "java.lang.Object[]7fa"
      * </pre>
      *
-     * @param object  对象
-     * @param nullStr 如果对象为<code>null</code>，则返回该字符串
-     * @return 对象的identity，如果对象是<code>null</code>，则返回指定字符串
+     * param object  对象
+     * param nullStr 如果对象为<code>null</code>，则返回该字符串
+     * return 对象的identity，如果对象是<code>null</code>，则返回指定字符串
      */
     public static String identityToString(Object object, String nullStr) {
         if (object == null) {
@@ -260,14 +260,14 @@ public class ObjectUtil {
      * <p/>
      * <pre>
      * ObjectUtil.appendIdentityToString(buf, null)          = null
-     * ObjectUtil.appendIdentityToString(buf, Boolean.TRUE)  = buf.append("java.lang.Boolean@7fa")
-     * ObjectUtil.appendIdentityToString(buf, new int[0])    = buf.append("int[]@7fa")
-     * ObjectUtil.appendIdentityToString(buf, new Object[0]) = buf.append("java.lang.Object[]@7fa")
+     * ObjectUtil.appendIdentityToString(buf, Boolean.TRUE)  = buf.append("java.lang.Boolean7fa")
+     * ObjectUtil.appendIdentityToString(buf, new int[0])    = buf.append("int[]7fa")
+     * ObjectUtil.appendIdentityToString(buf, new Object[0]) = buf.append("java.lang.Object[]7fa")
      * </pre>
      *
-     * @param buffer <code>Appendable</code>对象
-     * @param object 对象
-     * @return <code>Appendable</code>对象，如果对象为<code>null</code>，则输出
+     * param buffer <code>Appendable</code>对象
+     * param object 对象
+     * return <code>Appendable</code>对象，如果对象为<code>null</code>，则输出
      *         <code>"null"</code>
      */
     public static <A extends Appendable> A appendIdentityToString(A buffer, Object object) {
@@ -302,8 +302,8 @@ public class ObjectUtil {
      * ObjectUtil.toString([1, 2, 3])    = "[1, 2, 3]"
      * </pre>
      *
-     * @param object 对象
-     * @return 对象的<code>toString()</code>的返回值，或空字符串<code>""</code>
+     * param object 对象
+     * return 对象的<code>toString()</code>的返回值，或空字符串<code>""</code>
      */
     public static String toString(Object object) {
         return toString(object, EMPTY_STRING);
@@ -321,9 +321,9 @@ public class ObjectUtil {
      * ObjectUtil.toString([1, 2, 3], "null")    = "[1, 2, 3]"
      * </pre>
      *
-     * @param object  对象
-     * @param nullStr 如果对象为<code>null</code>，则返回该字符串
-     * @return 对象的<code>toString()</code>的返回值，或指定字符串
+     * param object  对象
+     * param nullStr 如果对象为<code>null</code>，则返回该字符串
+     * return 对象的<code>toString()</code>的返回值，或指定字符串
      */
     public static String toString(Object object, String nullStr) {
         if (object == null) {

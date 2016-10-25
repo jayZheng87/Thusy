@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guo@icloud.com).
+ *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
  *
  *  Licensed under the GPL, Version 3.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ public final class Resources{
     /**
      * Returns the default classloader (may be null).
      *
-     * @return The default classloader
+     * return The default classloader
      */
     public static ClassLoader getDefaultClassLoader() {
         return defaultClassLoader;
@@ -49,7 +49,7 @@ public final class Resources{
     /**
      * Sets the default classloader
      *
-     * @param defaultClassLoader
+     * param defaultClassLoader
      *            - the new default ClassLoader
      */
     public static void setDefaultClassLoader(ClassLoader defaultClassLoader) {
@@ -59,10 +59,10 @@ public final class Resources{
     /**
      * Returns the URL of the resource on the classpath
      *
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static URL getResourceURL(String resource) throws IOException {
@@ -72,12 +72,12 @@ public final class Resources{
     /**
      * Returns the URL of the resource on the classpath
      *
-     * @param loader
+     * param loader
      *            The classloader used to load the resource
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static URL getResourceURL(ClassLoader loader, String resource)
@@ -98,10 +98,10 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a Stream object
      *
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static InputStream getResourceAsStream(String resource)
@@ -112,12 +112,12 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a Stream object
      *
-     * @param loader
+     * param loader
      *            The classloader used to load the resource
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static InputStream getResourceAsStream(ClassLoader loader,
@@ -138,10 +138,10 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a Properties object
      *
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static Properties getResourceAsProperties(String resource)
@@ -158,12 +158,12 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a Properties object
      *
-     * @param loader
+     * param loader
      *            The classloader used to load the resource
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static Properties getResourceAsProperties(ClassLoader loader,
@@ -180,10 +180,10 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a Reader object
      *
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static Reader getResourceAsReader(String resource)
@@ -202,12 +202,12 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a Reader object
      *
-     * @param loader
+     * param loader
      *            The classloader used to load the resource
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static Reader getResourceAsReader(ClassLoader loader, String resource)
@@ -227,10 +227,10 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a File object
      *
-     * @param resource
+     * param resource
      *            The resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static File getResourceAsFile(String resource) throws IOException {
@@ -240,12 +240,12 @@ public final class Resources{
     /**
      * Returns a resource on the classpath as a File object
      *
-     * @param loader
+     * param loader
      *            - the classloader used to load the resource
-     * @param resource
+     * param resource
      *            - the resource to find
-     * @return The resource
-     * @throws IOException
+     * return The resource
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static File getResourceAsFile(ClassLoader loader, String resource)
@@ -256,10 +256,10 @@ public final class Resources{
     /**
      * Gets a URL as an input stream
      *
-     * @param urlString
+     * param urlString
      *            - the URL to get
-     * @return An input stream with the data from the URL
-     * @throws IOException
+     * return An input stream with the data from the URL
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static InputStream getUrlAsStream(String urlString)
@@ -272,10 +272,10 @@ public final class Resources{
     /**
      * Gets a URL as a Reader
      *
-     * @param urlString
+     * param urlString
      *            - the URL to get
-     * @return A Reader with the data from the URL
-     * @throws IOException
+     * return A Reader with the data from the URL
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static Reader getUrlAsReader(String urlString) throws IOException {
@@ -285,10 +285,10 @@ public final class Resources{
     /**
      * Gets a URL as a Properties object
      *
-     * @param urlString
+     * param urlString
      *            - the URL to get
-     * @return A Properties object with the data from the URL
-     * @throws IOException
+     * return A Properties object with the data from the URL
+     * throws IOException
      *             If the resource cannot be found or read
      */
     public static Properties getUrlAsProperties(String urlString)
@@ -305,10 +305,10 @@ public final class Resources{
     /**
      * Loads a class
      *
-     * @param className
+     * param className
      *            - the class to load
-     * @return The loaded class
-     * @throws ClassNotFoundException
+     * return The loaded class
+     * throws ClassNotFoundException
      *             If the class cannot be found (duh!)
      */
     public static Class<?> classForName(String className)
@@ -328,14 +328,14 @@ public final class Resources{
     /**
      * Creates an instance of a class
      *
-     * @param className
+     * param className
      *            - the class to create
-     * @return An instance of the class
-     * @throws ClassNotFoundException
+     * return An instance of the class
+     * throws ClassNotFoundException
      *             If the class cannot be found (duh!)
-     * @throws InstantiationException
+     * throws InstantiationException
      *             If the class cannot be instantiaed
-     * @throws IllegalAccessException
+     * throws IllegalAccessException
      *             If the class is not public, or other access problems arise
      */
     public static Object instantiate(String className)
@@ -347,12 +347,12 @@ public final class Resources{
     /**
      * Creates an instance of a class
      *
-     * @param clazz
+     * param clazz
      *            - the class to create
-     * @return An instance of the class
-     * @throws InstantiationException
+     * return An instance of the class
+     * throws InstantiationException
      *             If the class cannot be instantiaed
-     * @throws IllegalAccessException
+     * throws IllegalAccessException
      *             If the class is not public, or other access problems arise
      */
     public static Object instantiate(Class<?> clazz)
@@ -378,7 +378,7 @@ public final class Resources{
      * when the system default encoding doesn't deal well with unicode
      * (IBATIS-340, IBATIS-349)
      *
-     * @param charset
+     * param charset
      */
     public static void setCharset(Charset charset) {
         Resources.charset = charset;

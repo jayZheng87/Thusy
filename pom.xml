@@ -41,10 +41,11 @@
     </dependencies>
     <build>
         <finalName>tool</finalName>
-        <!--maven的核心插件 complier 默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置-->
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>

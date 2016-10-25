@@ -20,11 +20,11 @@ import java.util.Map;
 
 public class XmlUtil {
     /**
-     * @Title: formatXml
-     * @Description: 格式化 xml 文档
-     * @param: Document document ：XML文档,String charset : 要转换为的字符编码，boolean istrans ：是否对属性和元素值进行转移
-     * @return: 格式化后XML字符串
-     * @date：2015年6月29日上午9:30:22
+     * Title: formatXml
+     * Description: 格式化 xml 文档
+     * param: Document document ：XML文档,String charset : 要转换为的字符编码，boolean istrans ：是否对属性和元素值进行转移
+     * return: 格式化后XML字符串
+     * date：2015年6月29日上午9:30:22
      */
     public static String formatXml(Document document, String charset, boolean istrans) {
         OutputFormat format = OutputFormat.createPrettyPrint();
@@ -244,12 +244,12 @@ public class XmlUtil {
     }
 
     /**
-     * @Title: getListFromElement
-     * @Description: 将报文 Gridelement,转换为 多个Gridlb ,放如一个 list 中
+     * Title: getListFromElement
+     * Description: 将报文 Gridelement,转换为 多个Gridlb ,放如一个 list 中
      * ex:  List<Object> bdcxmList = XmlUtil.getListFromElement(BdcxmdjxxGridlbVO.class, bdcxmdjxxGrid);
-     * @param: TODO (入参描述)
-     * @return: TODO (返回类型和参数描述)
-     * @date：2015年7月12日上午10:24:37
+     * param: TODO (入参描述)
+     * return: TODO (返回类型和参数描述)
+     * date：2015年7月12日上午10:24:37
      */
     public static List<Object> getListFromElement(Class<?> clazz, Element element) {
         List<Object> list = new ArrayList<Object>();
@@ -266,9 +266,9 @@ public class XmlUtil {
     }
 
     /**
-     * @Title: voFromJSONObject
-     * @Description: 将 JsonObject 转为相应的 bean
-     * @date：2015年7月12日上午10:22:14
+     * Title: voFromJSONObject
+     * Description: 将 JsonObject 转为相应的 bean
+     * date：2015年7月12日上午10:22:14
      */
     public static Object voFromJSONObject(Class<?> clazz, JsonObject jo) {
         Gson gson = new Gson();

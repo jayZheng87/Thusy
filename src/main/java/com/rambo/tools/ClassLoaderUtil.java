@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guo@icloud.com).
+ *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
  *
  *  Licensed under the GPL, Version 3.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ import static com.rambo.tools.CollectionUtil.createLinkedList;
  * 取得了servlet引擎的<code>ClassLoader</code>， 从而找到了这个资源文件。
  * </p>
  *
- * @author renhui
+ * author renhui
  */
 public class ClassLoaderUtil {
 
@@ -72,7 +72,7 @@ public class ClassLoaderUtil {
     /**
      * 取得当前线程的<code>ClassLoader</code>。这个功能需要JDK1.2或更高版本的JDK的支持。
      *
-     * @return 当前线程的<code>ClassLoader</code>
+     * return 当前线程的<code>ClassLoader</code>
      */
     public static ClassLoader getContextClassLoader() {
         return Thread.currentThread().getContextClassLoader();
@@ -86,9 +86,9 @@ public class ClassLoaderUtil {
      * 从当前线程的<code>ClassLoader</code>装入类。对于JDK1.2以下，则相当于
      * <code>Class.forName</code>。
      *
-     * @param className 要装入的类名
-     * @return 已装入的类
-     * @throws ClassNotFoundException 如果类没找到
+     * param className 要装入的类名
+     * return 已装入的类
+     * throws ClassNotFoundException 如果类没找到
      */
     public static Class<?> loadClass(String className) throws ClassNotFoundException {
         return loadClass(className, getContextClassLoader());
@@ -97,11 +97,11 @@ public class ClassLoaderUtil {
     /**
      * 从指定的调用者的<code>ClassLoader</code>装入类。
      *
-     * @param className 要装入的类名
-     * @param referrer  调用者类，如果为<code>null</code>，则该方法相当于
+     * param className 要装入的类名
+     * param referrer  调用者类，如果为<code>null</code>，则该方法相当于
      *                  <code>Class.forName</code>
-     * @return 已装入的类
-     * @throws ClassNotFoundException 如果类没找到
+     * return 已装入的类
+     * throws ClassNotFoundException 如果类没找到
      */
     public static Class<?> loadClass(String className, Class<?> referrer) throws ClassNotFoundException {
         ClassLoader classLoader = getReferrerClassLoader(referrer);
@@ -115,11 +115,11 @@ public class ClassLoaderUtil {
      * 从指定的<code>ClassLoader</code>中装入类。如果未指定<code>ClassLoader</code>， 则从装载
      * <code>ClassLoaderUtil</code>的<code>ClassLoader</code>中装入。
      *
-     * @param className   要装入的类名
-     * @param classLoader 从指定的<code>ClassLoader</code>中装入类，如果为<code>null</code>
+     * param className   要装入的类名
+     * param classLoader 从指定的<code>ClassLoader</code>中装入类，如果为<code>null</code>
      *                    ，表示从<code>ClassLoaderUtil</code>所在的class loader中装载
-     * @return 已装入的类
-     * @throws ClassNotFoundException 如果类没找到
+     * return 已装入的类
+     * throws ClassNotFoundException 如果类没找到
      */
     public static Class<?> loadClass(String className, ClassLoader classLoader) throws ClassNotFoundException {
         if (className == null) {
@@ -137,8 +137,8 @@ public class ClassLoaderUtil {
     /**
      * 取得调用者的class loader。
      *
-     * @param referrer 调用者类
-     * @return 调用者的class loader，如果referrer为<code>null</code>，则返回
+     * param referrer 调用者类
+     * return 调用者的class loader，如果referrer为<code>null</code>，则返回
      *         <code>null</code>
      */
     private static ClassLoader getReferrerClassLoader(Class<?> referrer) {
@@ -164,10 +164,10 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>装入类并实例化之。
      *
-     * @param className 要实例化的类名
-     * @return 指定类名的实例
-     * @throws ClassNotFoundException      如果类没找到
-     * @throws ClassInstantiationException 如果实例化失败
+     * param className 要实例化的类名
+     * return 指定类名的实例
+     * throws ClassNotFoundException      如果类没找到
+     * throws ClassInstantiationException 如果实例化失败
      */
     public static Object newInstance(String className) throws ClassNotFoundException, ClassInstantiationException {
         return newInstance(loadClass(className));
@@ -176,12 +176,12 @@ public class ClassLoaderUtil {
     /**
      * 从指定的调用者的<code>ClassLoader</code>装入类并实例化之。
      *
-     * @param className 要实例化的类名
-     * @param referrer  调用者类，如果为<code>null</code>，则从<code>ClassLoaderUtil</code>
+     * param className 要实例化的类名
+     * param referrer  调用者类，如果为<code>null</code>，则从<code>ClassLoaderUtil</code>
      *                  所在的class loader装载
-     * @return 指定类名的实例
-     * @throws ClassNotFoundException      如果类没找到
-     * @throws ClassInstantiationException 如果实例化失败
+     * return 指定类名的实例
+     * throws ClassNotFoundException      如果类没找到
+     * throws ClassInstantiationException 如果实例化失败
      */
     public static Object newInstance(String className, Class<?> referrer) throws ClassNotFoundException,
             ClassInstantiationException {
@@ -192,12 +192,12 @@ public class ClassLoaderUtil {
      * 从指定的<code>ClassLoader</code>中装入类并实例化之。如果未指定<code>ClassLoader</code>， 则从装载
      * <code>ClassLoaderUtil</code>的<code>ClassLoader</code>中装入。
      *
-     * @param className   要实例化的类名
-     * @param classLoader 从指定的<code>ClassLoader</code>中装入类，如果为<code>null</code>
+     * param className   要实例化的类名
+     * param classLoader 从指定的<code>ClassLoader</code>中装入类，如果为<code>null</code>
      *                    ，表示从<code>ClassLoaderUtil</code>所在的class loader中装载
-     * @return 指定类名的实例
-     * @throws ClassNotFoundException      如果类没找到
-     * @throws ClassInstantiationException 如果实例化失败
+     * return 指定类名的实例
+     * throws ClassNotFoundException      如果类没找到
+     * throws ClassInstantiationException 如果实例化失败
      */
     public static Object newInstance(String className, ClassLoader classLoader) throws ClassNotFoundException,
             com.rambo.exceptions.ClassInstantiationException {
@@ -207,9 +207,9 @@ public class ClassLoaderUtil {
     /**
      * 创建指定类的实例。
      *
-     * @param clazz 要创建实例的类
-     * @return 指定类的实例
-     * @throws ClassInstantiationException 如果实例化失败
+     * param clazz 要创建实例的类
+     * return 指定类的实例
+     * throws ClassInstantiationException 如果实例化失败
      */
     private static Object newInstance(Class<?> clazz) throws ClassInstantiationException {
 
@@ -240,8 +240,8 @@ public class ClassLoaderUtil {
      * <li>通过<code>ClassLoader.getSystemResource</code>方法查找。</li>
      * </ol>
      *
-     * @param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
-     * @return resource的URL数组，如果没找到，则返回空数组。数组中保证不包含重复的URL。
+     * param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
+     * return resource的URL数组，如果没找到，则返回空数组。数组中保证不包含重复的URL。
      */
     public static URL[] getResources(String resourceName) {
         List<URL> urls = createLinkedList();
@@ -268,10 +268,10 @@ public class ClassLoaderUtil {
     /**
      * 从指定调用者所属的<code>ClassLoader</code>取得所有resource URL。
      *
-     * @param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
-     * @param referrer     调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
+     * param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
+     * param referrer     调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
      *                     的class loader中找
-     * @return resource的URL数组，如果没找到，则返回空数组。数组中保证不包含重复的URL。
+     * return resource的URL数组，如果没找到，则返回空数组。数组中保证不包含重复的URL。
      */
     public static URL[] getResources(String resourceName, Class<?> referrer) {
         ClassLoader classLoader = getReferrerClassLoader(referrer);
@@ -288,9 +288,9 @@ public class ClassLoaderUtil {
      * <code>ClassLoader</code>， 则从装载<code>ClassLoaderUtil</code>的
      * <code>ClassLoader</code>中取得所有resource URL。
      *
-     * @param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
-     * @param classLoader  从指定的<code>ClassLoader</code>中查找
-     * @return resource的URL数组，如果没找到，则返回空数组。数组中保证不包含重复的URL。
+     * param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
+     * param classLoader  从指定的<code>ClassLoader</code>中查找
+     * return resource的URL数组，如果没找到，则返回空数组。数组中保证不包含重复的URL。
      */
     public static URL[] getResources(String resourceName, ClassLoader classLoader) {
         List<URL> urls = createLinkedList();
@@ -304,11 +304,11 @@ public class ClassLoaderUtil {
     /**
      * 在指定class loader中查找指定名称的resource，把所有找到的resource的URL放入指定的集合中。
      *
-     * @param urlSet         存放resource URL的集合
-     * @param resourceName   资源名
-     * @param classLoader    类装入器
-     * @param sysClassLoader 是否用system class loader装载资源
-     * @return 如果找到，则返回<code>true</code>
+     * param urlSet         存放resource URL的集合
+     * param resourceName   资源名
+     * param classLoader    类装入器
+     * param sysClassLoader 是否用system class loader装载资源
+     * return 如果找到，则返回<code>true</code>
      */
     private static boolean getResources(List<URL> urlSet, String resourceName, ClassLoader classLoader,
                                         boolean sysClassLoader) {
@@ -341,8 +341,8 @@ public class ClassLoaderUtil {
     /**
      * 去除URL列表中的重复项。
      *
-     * @param urls URL列表
-     * @return 不重复的URL数组，如果urls为<code>null</code>，则返回空数组
+     * param urls URL列表
+     * return 不重复的URL数组，如果urls为<code>null</code>，则返回空数组
      */
     private static URL[] getDistinctURLs(List<URL> urls) {
         if (urls == null || urls.size() == 0) {
@@ -374,8 +374,8 @@ public class ClassLoaderUtil {
      * <li>通过<code>ClassLoader.getSystemResource</code>方法查找。</li>
      * </ol>
      *
-     * @param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
-     * @return resource的URL
+     * param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
+     * return resource的URL
      */
     public static URL getResource(String resourceName) {
         if (resourceName == null) {
@@ -415,10 +415,10 @@ public class ClassLoaderUtil {
     /**
      * 从指定调用者所属的<code>ClassLoader</code>取得resource URL。
      *
-     * @param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
-     * @param referrer     调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
+     * param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
+     * param referrer     调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
      *                     的class loader中找。
-     * @return resource URL，如果没找到，则返回<code>null</code>
+     * return resource URL，如果没找到，则返回<code>null</code>
      */
     public static URL getResource(String resourceName, Class<?> referrer) {
         if (resourceName == null) {
@@ -434,10 +434,10 @@ public class ClassLoaderUtil {
     /**
      * 从指定的<code>ClassLoader</code>取得resource URL。
      *
-     * @param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
-     * @param classLoader  在指定classLoader中查找，如果为<code>null</code>，表示在
+     * param resourceName 要查找的资源名，就是以&quot;/&quot;分隔的标识符字符串
+     * param classLoader  在指定classLoader中查找，如果为<code>null</code>，表示在
      *                     <code>ClassLoaderUtil</code>的class loader中找。
-     * @return resource URL，如果没找到，则返回<code>null</code>
+     * return resource URL，如果没找到，则返回<code>null</code>
      */
     public static URL getResource(String resourceName, ClassLoader classLoader) {
         if (resourceName == null) {
@@ -452,8 +452,8 @@ public class ClassLoaderUtil {
      * 从<code>ClassLoader</code>取得resource的输入流。 相当于
      * <code>getResource(resourceName).openStream()</code>。
      *
-     * @param resourceName 要查找的资源名，就是以"/"分隔的标识符字符串
-     * @return resource的输入流
+     * param resourceName 要查找的资源名，就是以"/"分隔的标识符字符串
+     * return resource的输入流
      */
     public static InputStream getResourceAsStream(String resourceName) {
         URL url = getResource(resourceName);
@@ -474,10 +474,10 @@ public class ClassLoaderUtil {
      * <code>getResource(resourceName,
      * referrer).openStream()</code>。
      *
-     * @param resourceName 要查找的资源名，就是以"/"分隔的标识符字符串
-     * @param referrer     调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
+     * param resourceName 要查找的资源名，就是以"/"分隔的标识符字符串
+     * param referrer     调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
      *                     的class loader中找。
-     * @return resource的输入流
+     * return resource的输入流
      */
     public static InputStream getResourceAsStream(String resourceName, Class<?> referrer) {
         URL url = getResource(resourceName, referrer);
@@ -498,10 +498,10 @@ public class ClassLoaderUtil {
      * <code>getResource(resourceName,
      * classLoader).openStream()</code>。
      *
-     * @param resourceName 要查找的资源名，就是以"/"分隔的标识符字符串
-     * @param classLoader  在指定classLoader中查找，如果为<code>null</code>，表示在
+     * param resourceName 要查找的资源名，就是以"/"分隔的标识符字符串
+     * param classLoader  在指定classLoader中查找，如果为<code>null</code>，表示在
      *                     <code>ClassLoaderUtil</code>的class loader中找。
-     * @return resource的输入流
+     * return resource的输入流
      */
     public static InputStream getResourceAsStream(String resourceName, ClassLoader classLoader) {
         URL url = getResource(resourceName, classLoader);
@@ -526,8 +526,8 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>中查找指定名称的类。
      *
-     * @param className 要查找的类名
-     * @return URL数组，列举了系统中所有可找到的同名类，如果未找到，则返回一个空数组
+     * param className 要查找的类名
+     * return URL数组，列举了系统中所有可找到的同名类，如果未找到，则返回一个空数组
      */
     public static URL[] whichClasses(String className) {
         return getResources(ClassUtil.getResourceNameForClass(className));
@@ -536,10 +536,10 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>中查找指定名称的类。
      *
-     * @param className 要查找的类名
-     * @param referrer  调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
+     * param className 要查找的类名
+     * param referrer  调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
      *                  的class loader中找。
-     * @return URL数组，列举了系统中所有可找到的同名类，如果未找到，则返回一个空数组
+     * return URL数组，列举了系统中所有可找到的同名类，如果未找到，则返回一个空数组
      */
     public static URL[] whichClasses(String className, Class<?> referrer) {
         return getResources(ClassUtil.getResourceNameForClass(className), referrer);
@@ -548,10 +548,10 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>中查找指定名称的类。
      *
-     * @param className   要查找的类名
-     * @param classLoader 在指定classLoader中查找，如果为<code>null</code>，表示在
+     * param className   要查找的类名
+     * param classLoader 在指定classLoader中查找，如果为<code>null</code>，表示在
      *                    <code>ClassLoaderUtil</code>的class loader中找。
-     * @return URL数组，列举了系统中所有可找到的同名类，如果未找到，则返回一个空数组
+     * return URL数组，列举了系统中所有可找到的同名类，如果未找到，则返回一个空数组
      */
     public static URL[] whichClasses(String className, ClassLoader classLoader) {
         return getResources(ClassUtil.getResourceNameForClass(className), classLoader);
@@ -560,8 +560,8 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>中查找指定名称的类。
      *
-     * @param className 要查找的类名
-     * @return 类文件的URL，如果未找到，则返回<code>null</code>
+     * param className 要查找的类名
+     * return 类文件的URL，如果未找到，则返回<code>null</code>
      */
     public static URL whichClass(String className) {
         return getResource(ClassUtil.getResourceNameForClass(className));
@@ -570,10 +570,10 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>中查找指定名称的类。
      *
-     * @param className 要查找的类名
-     * @param referrer  调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
+     * param className 要查找的类名
+     * param referrer  调用者类，如果为<code>null</code>，表示在<code>ClassLoaderUtil</code>
      *                  的class loader中找。
-     * @return 类文件的URL，如果未找到，则返回<code>null</code>
+     * return 类文件的URL，如果未找到，则返回<code>null</code>
      */
     public static URL whichClass(String className, Class<?> referrer) {
         return getResource(ClassUtil.getResourceNameForClass(className), referrer);
@@ -582,10 +582,10 @@ public class ClassLoaderUtil {
     /**
      * 从当前线程的<code>ClassLoader</code>中查找指定名称的类。
      *
-     * @param className   要查找的类名
-     * @param classLoader 在指定classLoader中查找，如果为<code>null</code>，表示在
+     * param className   要查找的类名
+     * param classLoader 在指定classLoader中查找，如果为<code>null</code>，表示在
      *                    <code>ClassLoaderUtil</code>的class loader中找。
-     * @return 类文件的URL，如果未找到，则返回<code>null</code>
+     * return 类文件的URL，如果未找到，则返回<code>null</code>
      */
     public static URL whichClass(String className, ClassLoader classLoader) {
         return getResource(ClassUtil.getResourceNameForClass(className), classLoader);

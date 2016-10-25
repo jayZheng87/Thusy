@@ -1,10 +1,8 @@
 package com.rambo.tools;
 
 /**
- * @ClassName: WebContainerUtil
- * @Description: ÅÐ¶Ï Web ÈÝÆ÷ ¹¤¾ßÀà
- * @author: rambo
- */
+  *Description:åˆ¤æ–­ web å®¹å™¨å·¥å…·
+  */
 public class WebContainerUtil {
     private static WebContainerUtil _instance = new WebContainerUtil();
     private String _serverId;
