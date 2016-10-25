@@ -10,15 +10,11 @@ import java.util.zip.ZipOutputStream;
  * 通过Java的Zip输入输出流实现压缩和解压文件
  * Create by rambo on 2016/7/9
  */
-public final class ZipUtil {
-
-    private ZipUtil() {
-
-    }
+public class ZipUtil {
 
     /**
      * 压缩文件
-     *
+     * <p>
      * param filePath 待压缩的文件路径
      * return 压缩后的文件
      */
@@ -50,7 +46,7 @@ public final class ZipUtil {
 
     /**
      * 扫描添加文件Entry
-     *
+     * <p>
      * param base   基路径
      * param source 源文件
      * param zos    Zip文件输出流
@@ -86,7 +82,7 @@ public final class ZipUtil {
 
     /**
      * 解压文件
-     *
+     * <p>
      * param filePath 压缩文件路径
      */
     public static void unzip(String filePath) {
@@ -123,11 +119,9 @@ public final class ZipUtil {
 
     /**
      * 删除某个文件夹下的所有文件夹和文件
-     *
+     * <p>
      * param delpath
-     *            String
-     * throws FileNotFoundException
-     * throws IOException
+     * String
      * return boolean
      */
     public static boolean deletefile(String delpath) throws Exception {
@@ -147,36 +141,14 @@ public final class ZipUtil {
         return true;
     }
 
+
     public static void main(String[] args) {
-  /*      File file = ZipUtil.zip("F:\\Garbage\\webservice_Client");
-        System.out.println(file);
-        ZipUtil.unzip("F:\\Garbage\\webservice_Client.rar");*/
-
-       /* File file1 = new File("F:/AAA/BBB/CCC");
-        if (file1.mkdirs()) {
-            System.out.println("多级层文件夹创建成功！创建后的文件目录为：" + file1.getPath() + ",上级文件为:" + file1.getParent());
-        }
-
-        File file2 = new File("F:/AAA/BBB/CCC/DDD");
-        if (file2.mkdir()) {
-            System.out.println("单文件夹 DDD 创建成功！创建后的文件目录为：" + file2.getPath() + ",上级文件为:" + file2.getParent());
-        }
-
-        File file3 = new File("F:/AAA/BBB/CCC/DDD","mytest.txt");
         try {
-            if (file3.createNewFile()) {
-                System.out.println("多级层文件夹下文件创建成功！创建了的文件为:" + file3.getAbsolutePath() + ",上级文件为:" + file3.getParent());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+            File zip = zip("F:\\Garbage\\PDF");
 
-        try {
-            deletefile("F:\\Garbage\\JXKP_20160701 - 副本 - 副本");
+            //deletefile("F:\\Garbage\\JXKP_20160701 - 副本 - 副本");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }
