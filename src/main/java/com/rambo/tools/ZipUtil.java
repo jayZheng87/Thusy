@@ -8,7 +8,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * 通过Java的Zip输入输出流实现压缩和解压文件
- * Create by Yet on 2016/7/9
+ * Create by rambo on 2016/7/9
  */
 public final class ZipUtil {
 

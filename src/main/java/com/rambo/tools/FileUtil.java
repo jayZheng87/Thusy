@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import static com.rambo.tools.StringUtil.trimToEmpty;
 import static com.rambo.tools.StringUtil.trimToNull;
 /**
- * Create by Yet on 2016/6/23
+ * Create by rambo on 2016/6/23
  **/
 public class FileUtil {
 
