@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import java.util.Hashtable;
 
 /**
- * Title: 宁夏网报（金三税收接口）
  * ClassName: Browser (主要是获取浏览器信息的一段代码，可用于 web 端，获取的信息包括浏览器版本、操作系统)
  */
 @SuppressWarnings("serial")
@@ -40,10 +39,6 @@ public class BrowserUtil extends HttpServlet {
 
 	/** 
 	* Description: TODO(这里用一句话描述这个方法的作用)
-	* param: TODO (入参描述)
-	* return: TODO (返回类型和参数描述)
-	* author:rambo
-	* date：2015年8月7日下午2:59:38
 	*/
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() {
@@ -53,22 +48,14 @@ public class BrowserUtil extends HttpServlet {
 	}
 
 	/** 
-	* Description: TODO(这里用一句话描述这个方法的作用) 设置用户的代理
-	* param: TODO (入参描述)
-	* return: TODO (返回类型和参数描述)
-	* author:rambo
-	* date：2015年8月7日下午3:00:14
+	* Description: TODO(设置用户的代理)
 	*/
 	public void setUserAgent(String httpUserAgent) {
 		this.userAgent = httpUserAgent.toLowerCase();
 	}
 
 	/** 
-	* Description: TODO(这里用一句话描述这个方法的作用) 根据用户浏览器代理，来获取公司
-	* param: TODO (入参描述)
-	* return: TODO (返回类型和参数描述)
-	* author:rambo
-	* date：2015年8月7日下午3:00:33
+	* Description: TODO(根据用户浏览器代理，来获取公司)
 	*/
 	private void setCompany() {
 		if (this.userAgent.indexOf("msie") > -1) {
@@ -87,11 +74,7 @@ public class BrowserUtil extends HttpServlet {
 	}
 
 	/** 
-	* Description: TODO(这里用一句话描述这个方法的作用) 根据公司名称获取用户浏览器名称
-	* param: TODO (入参描述)
-	* return: TODO (返回类型和参数描述)
-	* author:rambo
-	* date：2015年8月7日下午3:01:24
+	* Description: 根据公司名称获取用户浏览器名称
 	*/
 	private void setName() {
 		if (this.company == "Microsoft") {
