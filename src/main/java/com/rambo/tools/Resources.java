@@ -1,17 +1,17 @@
 /**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
- *
- *  Licensed under the GPL, Version 3.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.gnu.org/licenses/gpl.html
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
+ * <p>
+ * Licensed under the GPL, Version 3.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.gnu.org/licenses/gpl.html
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.rambo.tools;
 
@@ -24,7 +24,7 @@ import java.util.Properties;
 /**
  * A class to simplify access to resources through the classloader.
  */
-public final class Resources{
+public final class Resources {
 
     private static ClassLoader defaultClassLoader;
 
@@ -83,13 +83,13 @@ public final class Resources{
     public static URL getResourceURL(ClassLoader loader, String resource)
             throws IOException {
         URL url = null;
-        if (loader != null){
+        if (loader != null) {
             url = loader.getResource(resource);
         }
-        if (url == null){
+        if (url == null) {
             url = ClassLoader.getSystemResource(resource);
         }
-        if (url == null){
+        if (url == null) {
             throw new IOException("Could not find resource " + resource);
         }
         return url;
@@ -123,13 +123,13 @@ public final class Resources{
     public static InputStream getResourceAsStream(ClassLoader loader,
                                                   String resource) throws IOException {
         InputStream in = null;
-        if (loader != null){
+        if (loader != null) {
             in = loader.getResourceAsStream(resource);
         }
-        if (in == null){
+        if (in == null) {
             in = ClassLoader.getSystemResourceAsStream(resource);
         }
-        if (in == null){
+        if (in == null) {
             throw new IOException("Could not find resource " + resource);
         }
         return in;

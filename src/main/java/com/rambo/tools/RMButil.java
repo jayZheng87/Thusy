@@ -174,6 +174,4 @@ public class RMButil {
         }
         return retDigit.toString();
     }
-
-
 }
