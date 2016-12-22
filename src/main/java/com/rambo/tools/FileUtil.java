@@ -10,19 +10,17 @@ import java.util.regex.Pattern;
 
 import static com.rambo.tools.StringUtil.trimToEmpty;
 import static com.rambo.tools.StringUtil.trimToNull;
+
 /**
- * Create by rambo on 2016/6/23
  **/
 public class FileUtil {
 
-    public static String readFileContent(File file, String encoding)
-            throws Exception {
+    public static String readFileContent(File file, String encoding) throws Exception {
         FileInputStream fis = new FileInputStream(file);
         return readStreamContent(fis, encoding);
     }
 
-    public static String readStreamContent(InputStream stream, String encoding)
-            throws Exception {
+    public static String readStreamContent(InputStream stream, String encoding) throws Exception {
         StringBuilder content = new StringBuilder("");
         byte[] bytearray = new byte[stream.available()];
         int bytetotal = stream.available();
@@ -587,5 +585,13 @@ public class FileUtil {
      */
     public static String getFileSuffix(String filePath) {
         return filePath.substring(filePath.lastIndexOf(".") + 1, filePath.length());
+    }
+
+    public static void main(String[] args) throws Exception {
+        File file = new File("F:\\Garbage\\mywork.sql");
+        new File("F:\\Garbage\\mywork.sql");
+        System.out.println("1. 从指定地址使用特定编码读取文件："  + readFileContent(file,"UTF-8"));
+        //System.out.println("2. 从指定输入流使用特定编码读取文件："  + readFileContent("UTF-8"));
+
     }
 }

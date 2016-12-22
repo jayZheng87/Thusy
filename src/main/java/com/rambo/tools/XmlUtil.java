@@ -19,13 +19,6 @@ import java.util.List;
 import java.util.Map;
 
 public class XmlUtil {
-    /**
-     * Title: formatXml
-     * Description: 格式化 xml 文档
-     * param: Document document ：XML文档,String charset : 要转换为的字符编码，boolean istrans ：是否对属性和元素值进行转移
-     * return: 格式化后XML字符串
-     * date：2015年6月29日上午9:30:22
-     */
     public static String formatXml(Document document, String charset, boolean istrans) {
         OutputFormat format = OutputFormat.createPrettyPrint();
         format.setEncoding(charset);

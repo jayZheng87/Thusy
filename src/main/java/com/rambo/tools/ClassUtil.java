@@ -1,18 +1,3 @@
-/**
- *  Copyright (c) 1997-2013, www.tinygroup.org (luo_guoicloud.com).
- *
- *  Licensed under the GPL, Version 3.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.gnu.org/licenses/gpl.html
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
 package com.rambo.tools;
 
 
@@ -33,16 +18,12 @@ import static com.rambo.tools.BasicConstant.EMPTY_STRING;
 import static com.rambo.tools.CollectionUtil.createHashMap;
 import static com.rambo.tools.CollectionUtil.createHashSet;
 
-
-
 /**
  * 有关 <code>Class</code> 处理的工具类。
  * <p>
  * 这个类中的每个方法都可以“安全”地处理 <code>null</code> ，而不会抛出
  * <code>NullPointerException</code>。
  * </p>
-
- * author renhui
  *
  */
 public class ClassUtil {

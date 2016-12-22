@@ -5,11 +5,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-
-/**
- * 通过Java的Zip输入输出流实现压缩和解压文件
- * Create by rambo on 2016/7/9
- */
 public class ZipUtil {
 
     /**
@@ -69,7 +64,8 @@ public class ZipUtil {
                 fis = new FileInputStream(source);
                 bis = new BufferedInputStream(fis, buffer.length);
                 int read;
-                zos.putNextEntry(new ZipEntry(entry)); //如果只是想将文件夹下的所有文件压缩，不需名要压缩父目录,约定文件名长度 entry.substring(length)
+                //如果只是想将文件夹下的所有文件压缩，不需名要压缩父目录,约定文件名长度 entry.substring(length)
+                zos.putNextEntry(new ZipEntry(entry));
                 while ((read = bis.read(buffer, 0, buffer.length)) != -1) {
                     zos.write(buffer, 0, read);
                 }
@@ -144,9 +140,13 @@ public class ZipUtil {
 
     public static void main(String[] args) {
         try {
+            System.out.println("1. 压缩文件的到父级目录：");
             File zip = zip("F:\\Garbage\\PDF");
 
-            //deletefile("F:\\Garbage\\JXKP_20160701 - 副本 - 副本");
+            System.out.println("2. 解压缩文件到指定文件夹:");
+            unzip("F:\\Garbage\\PDF");
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

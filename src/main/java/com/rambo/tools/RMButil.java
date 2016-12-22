@@ -1,8 +1,5 @@
 package com.rambo.tools;
 
-/**
- * Create by rambo on 2016/6/23
- **/
 public class RMButil {
     static String[] HanDigiStr = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
     static String[] HanDiviStr = {"", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟"};

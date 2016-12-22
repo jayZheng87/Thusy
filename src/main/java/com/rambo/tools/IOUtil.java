@@ -5,7 +5,6 @@ import java.io.IOException;
 
 /**
  * IO流工具类
- *  Create by rambo on 2016/7/9
  */
 public class IOUtil {
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * 有关数组处理的工具类。
- * author renhui
  */
 public class ArrayUtil {
 
