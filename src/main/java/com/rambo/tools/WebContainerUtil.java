@@ -1,8 +1,8 @@
 package com.rambo.tools;
 
 /**
-  *Description:判断 web 容器工具
-  */
+ * Description:判断当前 web 容器工具
+ */
 public class WebContainerUtil {
     private static WebContainerUtil _instance = new WebContainerUtil();
     private String _serverId;
@@ -173,5 +173,9 @@ public class WebContainerUtil {
             }
         }
         return Boolean.FALSE;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(WebContainerUtil.getServerId());
     }
 }

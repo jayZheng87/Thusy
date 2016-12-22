@@ -4,99 +4,11 @@ public class RMButil {
     static String[] HanDigiStr = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
     static String[] HanDiviStr = {"", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟"};
 
-    public static String changeToBig(double value) {
-        char[] hunit = {'拾', '佰', '仟'};
-        char[] vunit = {'万', '亿'};
-        char[] digit = {38646, '壹', 36144, '叁', 32902, '伍', 38470, '柒', '捌', '玖'};
-        long midVal = (long) (value * 100.0D);
-        String valStr = String.valueOf(midVal);
-        if (value < 0.1D) {
-            return digit[(valStr.charAt(0) - '0')] + "分";
-        }
-        String head = valStr.substring(0, valStr.length() - 2);
-        String rail = valStr.substring(valStr.length() - 2);
-
-        String prefix = "";
-        String suffix = "";
-        if (rail.equals("00")) {
-            suffix = "整";
-        } else {
-            suffix = digit[(rail.charAt(0) - '0')] + "角" + digit[(rail.charAt(1) - '0')] + "分";
-        }
-        char[] chDig = head.toCharArray();
-        char zero = '0';
-        byte zeroSerNum = 0;
-        for (int i = 0; i < chDig.length; i++) {
-            int idx = (chDig.length - i - 1) % 4;
-            int vidx = (chDig.length - i - 1) / 4;
-            if (chDig[i] == '0') {
-                zeroSerNum = (byte) (zeroSerNum + 1);
-                if (zero == '0') {
-                    zero = digit[0];
-                } else if ((idx == 0) && (vidx > 0) && (zeroSerNum < 4)) {
-                    prefix = prefix + vunit[(vidx - 1)];
-                    zero = '0';
-                }
-            } else {
-                zeroSerNum = 0;
-                if (zero != '0') {
-                    prefix = prefix + zero;
-                    zero = '0';
-                }
-                prefix = prefix + digit[(chDig[i] - '0')];
-                if (idx > 0) {
-                    prefix = prefix + hunit[(idx - 1)];
-                }
-                if ((idx == 0) && (vidx > 0)) {
-                    prefix = prefix + vunit[(vidx - 1)];
-                }
-            }
-        }
-        if (prefix.length() > 0) {
-            prefix = prefix + '圆';
-        }
-        return prefix + suffix;
-    }
-
-    private static String PositiveIntegerToHanStr(String NumStr) {
-        String RMBStr = "";
-        boolean lastzero = false;
-        boolean hasvalue = false;
-
-        int len = NumStr.length();
-        if (len > 15) {
-            return "数值过大!";
-        }
-        for (int i = len - 1; i >= 0; i--) {
-            if (NumStr.charAt(len - i - 1) != ' ') {
-                int n = NumStr.charAt(len - i - 1) - '0';
-                if ((n < 0) || (n > 9)) {
-                    return "输入含非数字字符!";
-                }
-                if (n != 0) {
-                    if (lastzero) {
-                        RMBStr = RMBStr + HanDigiStr[0];
-                    }
-                    if ((n != 1) || (i % 4 != 1) || (i != len - 1)) {
-                        RMBStr = RMBStr + HanDigiStr[n];
-                    }
-                    RMBStr = RMBStr + HanDiviStr[i];
-                    hasvalue = true;
-                } else if ((i % 8 == 0) || ((i % 8 == 4) && (hasvalue))) {
-                    RMBStr = RMBStr + HanDiviStr[i];
-                }
-                if (i % 8 == 0) {
-                    hasvalue = false;
-                }
-                lastzero = (n == 0) && (i % 4 != 0);
-            }
-        }
-        if (RMBStr.length() == 0) {
-            return HanDigiStr[0];
-        }
-        return RMBStr;
-    }
-
+    /**
+     * 数字转换为大写字符串
+     * @param val 待转换的 double数字
+     * @return String 大写数字
+     */
     public static String NumToRMBStr(double val) {
         String SignStr = "";
         String TailStr = "";
@@ -129,6 +41,11 @@ public class RMButil {
         return SignStr + PositiveIntegerToHanStr(String.valueOf(integer)) + "元" + TailStr;
     }
 
+    /**
+     *将字符串数字转换为大写
+     * @param digitStr 需要进行转换的数字
+     * @return 转换后的大写
+     */
     public static String digitToString(String digitStr) {
         String[] digit = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
         String[] weight = {"", "", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟"};
@@ -170,5 +87,50 @@ public class RMButil {
             }
         }
         return retDigit.toString();
+    }
+
+    private static String PositiveIntegerToHanStr(String NumStr) {
+        String RMBStr = "";
+        boolean lastzero = false;
+        boolean hasvalue = false;
+
+        int len = NumStr.length();
+        if (len > 15) {
+            return "数值过大!";
+        }
+        for (int i = len - 1; i >= 0; i--) {
+            if (NumStr.charAt(len - i - 1) != ' ') {
+                int n = NumStr.charAt(len - i - 1) - '0';
+                if ((n < 0) || (n > 9)) {
+                    return "输入含非数字字符!";
+                }
+                if (n != 0) {
+                    if (lastzero) {
+                        RMBStr = RMBStr + HanDigiStr[0];
+                    }
+                    if ((n != 1) || (i % 4 != 1) || (i != len - 1)) {
+                        RMBStr = RMBStr + HanDigiStr[n];
+                    }
+                    RMBStr = RMBStr + HanDiviStr[i];
+                    hasvalue = true;
+                } else if ((i % 8 == 0) || ((i % 8 == 4) && (hasvalue))) {
+                    RMBStr = RMBStr + HanDiviStr[i];
+                }
+                if (i % 8 == 0) {
+                    hasvalue = false;
+                }
+                lastzero = (n == 0) && (i % 4 != 0);
+            }
+        }
+        if (RMBStr.length() == 0) {
+            return HanDigiStr[0];
+        }
+        return RMBStr;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("1.数字转换为人民币大写：" + NumToRMBStr(-123456789012.45));
+        System.out.println("2.字符串转换为人民币大写：" + digitToString("123456789012.45"));
+
     }
 }

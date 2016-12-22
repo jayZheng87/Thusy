@@ -54,19 +54,6 @@ public class StringUtil extends org.apache.commons.lang.StringUtils {
         return (trimmed.equals("Y")) || (trimmed.equals("true"));
     }
 
-    /**
-     * Description:字符串转义， EJB xml 报文
-     */
-    public static String characterEscape(String str) {
-        str = str.replaceAll("<", "&lt;");
-        str = str.replaceAll(">", "&gt;");
-        str = str.replaceAll("\"", "&quot;");
-        // str =str.replaceAll("'","&apos;");
-        // str =str.replaceAll("\r","&#xD;");
-        // str =str.replaceAll(" ","&#x9");
-        // str =str.replaceAll(" ","&amp;");
-        return str;
-    }
 
     /**
       *Description:去除字符串所有空格
