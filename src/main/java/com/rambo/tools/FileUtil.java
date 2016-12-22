@@ -11,15 +11,26 @@ import java.util.regex.Pattern;
 import static com.rambo.tools.StringUtil.trimToEmpty;
 import static com.rambo.tools.StringUtil.trimToNull;
 
-/**
- **/
 public class FileUtil {
+    private static final Pattern schemePrefixPattern = Pattern.compile("(file:*[a-z]:)|(\\w+://.+?/)|((jar|zip):.+!/)|(\\w+:)", Pattern.CASE_INSENSITIVE);
 
+    /**
+     * 从指定文件，指定编码读取文件
+     *
+     * @param file
+     * @param encoding
+     */
     public static String readFileContent(File file, String encoding) throws Exception {
         FileInputStream fis = new FileInputStream(file);
         return readStreamContent(fis, encoding);
     }
 
+    /**
+     * 从指定输入流，指定编码读取文件
+     *
+     * @param stream
+     * @param encoding
+     */
     public static String readStreamContent(InputStream stream, String encoding) throws Exception {
         StringBuilder content = new StringBuilder("");
         byte[] bytearray = new byte[stream.available()];
@@ -44,7 +55,7 @@ public class FileUtil {
      * <li>保留路径末尾的"/"（如果有的话，除了空路径）。</li>
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
-     *
+     * <p>
      * param path 要规格化的路径
      * return 规格化后的路径
      * throws IllegalPathException 如果路径非法
@@ -66,7 +77,7 @@ public class FileUtil {
      * <li>保留路径末尾的"/"（如果有的话，除了空路径和强制指定<code>removeTrailingSlash==true</code>）。</li>
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
-     *
+     * <p>
      * param path                要规格化的路径
      * param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
      * return 规格化后的路径
@@ -89,7 +100,7 @@ public class FileUtil {
      * <li>空相对路径返回""。</li>
      * <li>保留路径末尾的"/"（如果有的话，除了空路径）。</li>
      * </ol>
-     *
+     * <p>
      * param path 要规格化的路径
      * return 规格化后的路径
      * throws IllegalPathException 如果路径非法
@@ -111,7 +122,7 @@ public class FileUtil {
      * <li>空相对路径返回""。</li>
      * <li>保留路径末尾的"/"（如果有的话，除了空路径和强制指定<code>removeTrailingSlash==true</code>）。</li>
      * </ol>
-     *
+     * <p>
      * param path                要规格化的路径
      * param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
      * return 规格化后的路径
@@ -132,7 +143,7 @@ public class FileUtil {
      * <li>保留路径末尾的"/"（如果有的话，除了空路径）。</li>
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
-     *
+     * <p>
      * param path 要规格化的路径
      * return 规格化后的路径
      * throws IllegalPathException 如果路径非法
@@ -152,7 +163,7 @@ public class FileUtil {
      * <li>保留路径末尾的"/"（如果有的话，除了空路径和强制指定<code>removeTrailingSlash==true</code>）。</li>
      * <li>对于绝对路径，如果".."上朔的路径超过了根目录，则看作非法路径，抛出异常。</li>
      * </ol>
-     *
+     * <p>
      * param path                要规格化的路径
      * param removeTrailingSlash 是否强制移除末尾的<code>"/"</code>
      * return 规格化后的路径
@@ -162,8 +173,7 @@ public class FileUtil {
         return normalizePath(path, false, false, removeTrailingSlash);
     }
 
-    private static String normalizePath(String path, boolean forceAbsolute, boolean forceRelative,
-                                        boolean removeTrailingSlash) throws IllegalPathException {
+    private static String normalizePath(String path, boolean forceAbsolute, boolean forceRelative, boolean removeTrailingSlash) throws IllegalPathException {
         char[] pathChars = trimToEmpty(path).toCharArray();
         int length = pathChars.length;
 
@@ -265,7 +275,7 @@ public class FileUtil {
 
     /**
      * 如果指定路径已经是绝对路径，则规格化后直接返回之，否则取得基于指定basedir的规格化路径。
-     *
+     * <p>
      * param basedir 根目录，如果<code>path</code>为相对路径，表示基于此目录
      * param path    要检查的路径
      * return 规格化的绝对路径
@@ -296,7 +306,7 @@ public class FileUtil {
 
     /**
      * 取得和系统相关的绝对路径。
-     *
+     * <p>
      * throws IllegalPathException 如果basedir不是绝对路径
      */
     public static String getSystemDependentAbsolutePathBasedOn(String basedir, String path) {
@@ -336,11 +346,11 @@ public class FileUtil {
 
     /**
      * 取得相对于指定根目录的相对路径。
-     *
+     * <p>
      * param basedir 根目录
      * param path    要计算的路径
      * return 如果<code>path</code>和<code>basedir</code>是兼容的，则返回相对于
-     *         <code>basedir</code>的相对路径，否则返回<code>path</code>本身。
+     * <code>basedir</code>的相对路径，否则返回<code>path</code>本身。
      * throws IllegalPathException 如果路径非法
      */
     public static String getRelativePath(String basedir, String path) throws IllegalPathException {
@@ -454,7 +464,7 @@ public class FileUtil {
 
     /**
      * 取得指定路径的名称和后缀。
-     *
+     * <p>
      * param path 路径
      * return 路径和后缀
      */
@@ -464,7 +474,7 @@ public class FileUtil {
 
     /**
      * 取得指定路径的名称和后缀。
-     *
+     * <p>
      * param path 路径
      * return 路径和后缀
      */
@@ -518,9 +528,6 @@ public class FileUtil {
         return ext;
     }
 
-    private static final Pattern schemePrefixPattern = Pattern.compile(
-            "(file:*[a-z]:)|(\\w+://.+?/)|((jar|zip):.+!/)|(\\w+:)", Pattern.CASE_INSENSITIVE);
-
     /**
      * 根据指定url和相对路径，计算出相对路径所对应的完整url。类似于<code>URI.resolve()</code>
      * 方法，然后后者不能正确处理jar类型的URL。
@@ -542,14 +549,29 @@ public class FileUtil {
         return url.substring(0, index) + normalizeAbsolutePath(url.substring(index) + "/../" + relativePath);
     }
 
+
+    /**
+     * 删除某个文件夹下的所有文件夹和文件
+     *
+     * @param delpath
+     * @return boolean
+     */
+    public static boolean deletefile(String delpath) throws Exception {
+        delete(new File(delpath));
+        return true;
+    }
+
+    /**
+     * 删除某个文件夹下的所有文件夹和文件
+     * @param file
+     */
     public static void delete(File file) {
         if (file != null && file.exists()) {
             if (file.isFile()) {
                 file.delete();
-            }
-            else if (file.isDirectory()) {
+            } else if (file.isDirectory()) {
                 File files[] = file.listFiles();
-                for (int i=0; i<files.length; i++) {
+                for (int i = 0; i < files.length; i++) {
                     delete(files[i]);
                 }
             }
@@ -580,18 +602,14 @@ public class FileUtil {
         }
     }
 
-    /**
-     * Description:获取文件后缀
-     */
-    public static String getFileSuffix(String filePath) {
-        return filePath.substring(filePath.lastIndexOf(".") + 1, filePath.length());
-    }
-
     public static void main(String[] args) throws Exception {
-        File file = new File("F:\\Garbage\\mywork.sql");
-        new File("F:\\Garbage\\mywork.sql");
-        System.out.println("1. 从指定地址使用特定编码读取文件："  + readFileContent(file,"UTF-8"));
-        //System.out.println("2. 从指定输入流使用特定编码读取文件："  + readFileContent("UTF-8"));
+        File resourceAsFile = Resources.getResourceAsFile(Thread.currentThread().getContextClassLoader(), "fileUtil.txt");
+        InputStream resourceAsStream = Resources.getResourceAsStream(Thread.currentThread().getContextClassLoader(), "fileUtil.txt");
 
+        File file = new File(String.valueOf(resourceAsFile));
+        System.out.println("1. 从指定地址使用特定编码读取文件：" + readFileContent(file, "UTF-8"));
+        System.out.println("2. 从指定输入流使用特定编码读取文件：" + readStreamContent(resourceAsStream, "UTF-8"));
+        System.out.println("4. 格式化路径：" + normalizePath(resourceAsFile.getAbsolutePath()));
+        System.out.println("3. 获取文件后缀：" + getExtension(resourceAsFile.getName()));
     }
 }

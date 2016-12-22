@@ -96,7 +96,6 @@ public class BrowserUtil extends HttpServlet {
 	* Description: TODO(这里用一句话描述这个方法的作用) 根据用户代理来获取浏览器版本
 	* param: TODO (入参描述)
 	* return: TODO (返回类型和参数描述)
-	* author:rambo
 	* date：2015年8月7日下午3:01:54
 	*/
 	private void setVersion() {
@@ -119,7 +118,6 @@ public class BrowserUtil extends HttpServlet {
 	* Description: TODO(这里用一句话描述这个方法的作用) 根据用户的代理来来来获取操作系统
 	* param: TODO (入参描述)
 	* return: TODO (返回类型和参数描述)
-	* author:rambo
 	* date：2015年8月7日下午3:02:48
 	*/
 	private void setOs() {

@@ -26,8 +26,7 @@ public abstract class NumberUtil {
      * see java.math.BigDecimal
      */
     @SuppressWarnings("unchecked")
-    public static <T extends Number> T convertNumberToTargetClass(Number number, Class<T> targetClass)
-            throws IllegalArgumentException {
+    public static <T extends Number> T convertNumberToTargetClass(Number number, Class<T> targetClass) throws IllegalArgumentException {
 
 
         if (targetClass.isInstance(number)) {
