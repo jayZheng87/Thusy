@@ -54,7 +54,7 @@ public class ClassLoaderUtil {
     // ==========================================================================
 
     /**
-     * 取得当前线程的<code>ClassLoader</code>。这个功能需要JDK1.2或更高版本的JDK的支持。
+     * 取得当前线程的<code>ClassLoader</code>。需要JDK1.2或更高版本的JDK的支持。
      *
      * return 当前线程的<code>ClassLoader</code>
      */
