@@ -565,7 +565,7 @@ public class FileUtil {
      * 删除某个文件夹下的所有文件夹和文件
      * @param file
      */
-    public static void delete(File file) {
+    public static void delete(File file) throws Exception{
         if (file != null && file.exists()) {
             if (file.isFile()) {
                 file.delete();

@@ -18,7 +18,7 @@ public class SecurityUtil {
      * eg: decodeStr("NjMwMTA0MDEyMTEwMDAyMDM5LDIwMTUwNg==")
      */
     public static String toBase64Decode(String pwd) {
-        byte[] debytes = Base64.decodeBase64(new String(pwd).getBytes());
+        byte[] debytes = Base64.decodeBase64(pwd.getBytes());
         return new String(debytes);
     }
 

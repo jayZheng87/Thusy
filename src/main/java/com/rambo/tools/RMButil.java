@@ -9,7 +9,7 @@ public class RMButil {
      * @param val 待转换的 double数字
      * @return String 大写数字
      */
-    public static String NumToRMBStr(double val) {
+    public static String numToRMBStr(double val) {
         String SignStr = "";
         String TailStr = "";
         if (val < 0.0D) {
@@ -129,7 +129,7 @@ public class RMButil {
     }
 
     public static void main(String[] args) {
-        System.out.println("1.数字转换为人民币大写：" + NumToRMBStr(-123456789012.45));
+        System.out.println("1.数字转换为人民币大写：" + numToRMBStr(-123456789012.45));
         System.out.println("2.字符串转换为人民币大写：" + digitToString("123456789012.45"));
 
     }

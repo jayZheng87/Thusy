@@ -89,15 +89,8 @@ public final class Resources {
 
 
     public static Reader getResourceAsReader(String resource) throws IOException {
-        Reader reader;
-        if (charset == null) {
-            reader = new InputStreamReader(getResourceAsStream(resource));
-        } else {
-            reader = new InputStreamReader(getResourceAsStream(resource),
-                    charset);
-        }
-
-        return reader;
+        return (charset == null) ? new InputStreamReader(getResourceAsStream(resource)) :
+                new InputStreamReader(getResourceAsStream(resource), charset);
     }
 
 
