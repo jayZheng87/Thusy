@@ -563,9 +563,10 @@ public class FileUtil {
 
     /**
      * 删除某个文件夹下的所有文件夹和文件
+     *
      * @param file
      */
-    public static void delete(File file) throws Exception{
+    public static void delete(File file) throws Exception {
         if (file != null && file.exists()) {
             if (file.isFile()) {
                 file.delete();
@@ -599,6 +600,21 @@ public class FileUtil {
 
         public String toString() {
             return extension == null ? fileName : fileName + "." + extension;
+        }
+    }
+
+    public static void createIncDir(String sourDir, String destDirPre) {
+        File baseDir = new File(sourDir);
+        if (baseDir.isDirectory()) {
+            File[] listFiles = baseDir.listFiles(new incFileFilter());
+            if (listFiles != null) {
+                for (File file1 : listFiles) {
+                    System.out.println(file1.getPath().substring(file1.getPath().indexOf("WebContent")));
+                    if (new File(destDirPre + File.separator + file1.getPath().substring(file1.getPath().indexOf("WebContent"))).mkdirs()) {
+                        createIncDir(file1.getAbsolutePath(), destDirPre);
+                    }
+                }
+            }
         }
     }
 
