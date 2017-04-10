@@ -1,6 +1,7 @@
 package com.rambo.tools;
 
 import com.rambo.exceptions.IllegalPathException;
+import com.rambo.filter.incFileFilter;
 
 import java.io.File;
 import java.io.FileInputStream;

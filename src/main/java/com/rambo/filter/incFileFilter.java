@@ -1,4 +1,4 @@
-package com.rambo.tools;
+package com.rambo.filter;
 
 import java.io.File;
 import java.io.FileFilter;
