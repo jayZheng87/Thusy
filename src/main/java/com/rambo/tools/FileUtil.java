@@ -604,13 +604,16 @@ public class FileUtil {
         }
     }
 
+    /**
+      *Description:发布增量文件时生成项目目录结构
+     * sourDir：项目发布路径，destDirPre：输出前缀路径
+      */
     public static void createIncDir(String sourDir, String destDirPre) {
         File baseDir = new File(sourDir);
         if (baseDir.isDirectory()) {
             File[] listFiles = baseDir.listFiles(new incFileFilter());
             if (listFiles != null) {
                 for (File file1 : listFiles) {
-                    System.out.println(file1.getPath().substring(file1.getPath().indexOf("WebContent")));
                     if (new File(destDirPre + File.separator + file1.getPath().substring(file1.getPath().indexOf("WebContent"))).mkdirs()) {
                         createIncDir(file1.getAbsolutePath(), destDirPre);
                     }

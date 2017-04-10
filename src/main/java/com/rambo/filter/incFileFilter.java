@@ -5,17 +5,11 @@ import java.io.FileFilter;
 
 /**
  * Create by Rambo on 2017/4/10
+ * 生成增量文件目录结构时的文件过滤
  **/
 public class incFileFilter implements FileFilter {
     @Override
     public boolean accept(File file) {
-        if (file.getName().contains(".")) {
-            return false;
-        }
-
-        if (!file.isDirectory()) {
-            return false;
-        }
-        return true;
+        return !file.getName().contains(".") && file.isDirectory();
     }
 }
