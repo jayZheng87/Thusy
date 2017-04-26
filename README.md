@@ -10,9 +10,9 @@
 
 `ClassUtil` ----->类通用工具类
 
-`CollectionUtil` ----->集合通用工具类
+`CollectionUtil` ----->依赖与 commons.lang 集合通用工具类
 
-`DateUtil` ----->日期通用工具类
+`DateUtil` ----->依赖与 commons.lang 的日期通用工具类
 
 `FileUtil` ----->文件通用工具类
 
@@ -30,10 +30,14 @@
 
 `RMButil` ----->人民币通用工具类
 
-`SecurityUtil` ----->安全通用工具类
+`SecurityUtil` ----->依赖于 commons.codec 的安全通用工具类
 
 `StringUtil` ----->字符串通用工具类
 
 `WebContainerUtil` ----->容器通用工具类
 
 `ZipUtil` ----->压缩通用工具类
+
+JsonUtil ----> 依赖于 jackson 的 Json 工具类
+
+XmlUtil -----> 依赖于 Xstream 的XML工具类
