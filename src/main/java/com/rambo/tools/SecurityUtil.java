@@ -113,7 +113,7 @@ public class SecurityUtil {
             System.out.println("1. MD5 加密:" + encryptMD5("rambo2017"));
             System.out.println("2. MD5 加密字符串对比:" + checkMD5Str("rambo2017", "W2ApG7CToTsObdO17mEk1w=="));
             System.out.println("3. Base64 加密字符串:" + toBase64Encode("123301000000000,201508"));
-            System.out.println("4. Base64 解密字符串:" + toBase64Decode(toBase64Encode("123301000000000,201508")));
+            System.out.println("4. Base64 解密字符串:" + toBase64Decode("1fb3b66e1ddf0286c8c2d84f85f9a393f945ad1f64ffc177e2506ff1"));
         } catch (Exception e) {
             e.printStackTrace();
         }
