@@ -41,3 +41,5 @@
 JsonUtil ----> 依赖于 jackson 的 Json 工具类
 
 XmlUtil -----> 依赖于 Xstream 的XML工具类
+
+HttpClientUtil ----> 依赖与 apache.httpcomponents 的http 客户端工具类
