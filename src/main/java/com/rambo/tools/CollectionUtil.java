@@ -9,23 +9,23 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class CollectionUtil {
 
     /**
-      *Description:实例化一个 arraylist,容量为10
-      */
+     * Description:实例化一个 arraylist,容量为10
+     */
     public static <T> ArrayList<T> createArrayList() {
         return new ArrayList();
     }
 
     /**
-      *Description:实例化一个特定容量的 arraylist
+     * Description:实例化一个特定容量的 arraylist
      * 不像数组的特定罐子，当容量超出设定，会自动扩容
-      */
+     */
     public static <T> ArrayList<T> createArrayList(int initialCapacity) {
         return new ArrayList(initialCapacity);
     }
 
     /**
-      *Description:
-      */
+     * Description:
+     */
     public static <T> ArrayList<T> createArrayList(Iterable<? extends T> c) {
         ArrayList<T> list;
         if ((c instanceof Collection)) {
@@ -39,8 +39,8 @@ public final class CollectionUtil {
     }
 
     /**
-      *Description：根据一个集合创建 arraylist,集合可以是 数组，list,map
-      */
+     * Description：根据一个集合创建 arraylist,集合可以是 数组，list,map
+     */
     public static <T, V extends T> ArrayList<T> createArrayList(V... args) {
         if ((args == null) || (args.length == 0)) {
             return new ArrayList();
@@ -228,8 +228,8 @@ public final class CollectionUtil {
     }
 
     /**
-      *Description:对象类型强转
-      */
+     * Description:对象类型强转
+     */
     @SuppressWarnings("unchecked")
     public static <T> T cast(Object obj) {
         return (T) obj;
@@ -238,7 +238,7 @@ public final class CollectionUtil {
     public static void main(String[] args) {
         String[] array = new String[5];
         array[0] = "AAAAAA";
-        array[1]= "BBBBBB";
+        array[1] = "BBBBBB";
         array[2] = "CCCCCC";
         array[3] = "DDDDDD";
         array[4] = "EEEEEE";

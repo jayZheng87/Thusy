@@ -35,11 +35,9 @@ public abstract class ReflectionUtils {
     public static void setField(Field field, Object target, Object value) {
         try {
             field.set(target, value);
-        }
-        catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             handleReflectionException(ex);
-            throw new IllegalStateException("Unexpected reflection exceptions - " + ex.getClass().getName() + ": "
-                    + ex.getMessage());
+            throw new IllegalStateException("Unexpected reflection exceptions - " + ex.getClass().getName() + ": " + ex.getMessage());
         }
     }
 
@@ -56,11 +54,9 @@ public abstract class ReflectionUtils {
     public static Object getField(Field field, Object target) {
         try {
             return field.get(target);
-        }
-        catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             handleReflectionException(ex);
-            throw new IllegalStateException(
-                    "Unexpected reflection exceptions - " + ex.getClass().getName() + ": " + ex.getMessage());
+            throw new IllegalStateException("Unexpected reflection exceptions - " + ex.getClass().getName() + ": " + ex.getMessage());
         }
     }
 
@@ -91,8 +87,7 @@ public abstract class ReflectionUtils {
         while (searchType != null) {
             Method[] methods = (searchType.isInterface() ? searchType.getMethods() : searchType.getDeclaredMethods());
             for (Method method : methods) {
-                if (name.equals(method.getName())
-                        && (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
+                if (name.equals(method.getName()) && (paramTypes == null || Arrays.equals(paramTypes, method.getParameterTypes()))) {
                     return method;
                 }
             }
@@ -127,8 +122,7 @@ public abstract class ReflectionUtils {
     public static Object invokeMethod(Method method, Object target, Object... args) {
         try {
             return method.invoke(target, args);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             handleReflectionException(ex);
         }
         throw new IllegalStateException("Should never get here");
@@ -160,11 +154,9 @@ public abstract class ReflectionUtils {
     public static Object invokeJdbcMethod(Method method, Object target, Object... args) throws SQLException {
         try {
             return method.invoke(target, args);
-        }
-        catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             handleReflectionException(ex);
-        }
-        catch (InvocationTargetException ex) {
+        } catch (InvocationTargetException ex) {
             if (ex.getTargetException() instanceof SQLException) {
                 throw (SQLException) ex.getTargetException();
             }
@@ -339,8 +331,7 @@ public abstract class ReflectionUtils {
      * see java.lang.reflect.Field#setAccessible
      */
     public static void makeAccessible(Field field) {
-        if ((!Modifier.isPublic(field.getModifiers()) || !Modifier.isPublic(field.getDeclaringClass().getModifiers()) ||
-                Modifier.isFinal(field.getModifiers())) && !field.isAccessible()) {
+        if ((!Modifier.isPublic(field.getModifiers()) || !Modifier.isPublic(field.getDeclaringClass().getModifiers()) || Modifier.isFinal(field.getModifiers())) && !field.isAccessible()) {
             field.setAccessible(true);
         }
     }
@@ -354,8 +345,7 @@ public abstract class ReflectionUtils {
      * see java.lang.reflect.Method#setAccessible
      */
     public static void makeAccessible(Method method) {
-        if ((!Modifier.isPublic(method.getModifiers()) || !Modifier.isPublic(method.getDeclaringClass().getModifiers()))
-                && !method.isAccessible()) {
+        if ((!Modifier.isPublic(method.getModifiers()) || !Modifier.isPublic(method.getDeclaringClass().getModifiers())) && !method.isAccessible()) {
             method.setAccessible(true);
         }
     }
@@ -369,8 +359,7 @@ public abstract class ReflectionUtils {
      * see java.lang.reflect.Constructor#setAccessible
      */
     public static void makeAccessible(Constructor<?> ctor) {
-        if ((!Modifier.isPublic(ctor.getModifiers()) || !Modifier.isPublic(ctor.getDeclaringClass().getModifiers()))
-                && !ctor.isAccessible()) {
+        if ((!Modifier.isPublic(ctor.getModifiers()) || !Modifier.isPublic(ctor.getDeclaringClass().getModifiers())) && !ctor.isAccessible()) {
             ctor.setAccessible(true);
         }
     }
@@ -397,8 +386,7 @@ public abstract class ReflectionUtils {
      * param mc the callback to invoke for each method
      * param mf the filter that determines the methods to apply the callback to
      */
-    public static void doWithMethods(Class<?> clazz, MethodCallback mc, MethodFilter mf)
-            throws IllegalArgumentException {
+    public static void doWithMethods(Class<?> clazz, MethodCallback mc, MethodFilter mf) throws IllegalArgumentException {
 
         // Keep backing up the inheritance hierarchy.
         Method[] methods = clazz.getDeclaredMethods();
@@ -408,16 +396,13 @@ public abstract class ReflectionUtils {
             }
             try {
                 mc.doWith(method);
-            }
-            catch (IllegalAccessException ex) {
-                throw new IllegalStateException("Shouldn't be illegal to access method '" + method.getName()
-                        + "': " + ex);
+            } catch (IllegalAccessException ex) {
+                throw new IllegalStateException("Shouldn't be illegal to access method '" + method.getName() + "': " + ex);
             }
         }
         if (clazz.getSuperclass() != null) {
             doWithMethods(clazz.getSuperclass(), mc, mf);
-        }
-        else if (clazz.isInterface()) {
+        } else if (clazz.isInterface()) {
             for (Class<?> superIfc : clazz.getInterfaces()) {
                 doWithMethods(superIfc, mc, mf);
             }
@@ -451,11 +436,9 @@ public abstract class ReflectionUtils {
                 Method methodBeingOverriddenWithCovariantReturnType = null;
 
                 for (Method existingMethod : methods) {
-                    if (method.getName().equals(existingMethod.getName()) &&
-                            Arrays.equals(method.getParameterTypes(), existingMethod.getParameterTypes())) {
+                    if (method.getName().equals(existingMethod.getName()) && Arrays.equals(method.getParameterTypes(), existingMethod.getParameterTypes())) {
                         // is this a covariant return type situation?
-                        if (existingMethod.getReturnType() != method.getReturnType() &&
-                                existingMethod.getReturnType().isAssignableFrom(method.getReturnType())) {
+                        if (existingMethod.getReturnType() != method.getReturnType() && existingMethod.getReturnType().isAssignableFrom(method.getReturnType())) {
                             methodBeingOverriddenWithCovariantReturnType = existingMethod;
                         } else {
                             knownSignature = true;
@@ -491,8 +474,7 @@ public abstract class ReflectionUtils {
      * param fc the callback to invoke for each field
      * param ff the filter that determines the fields to apply the callback to
      */
-    public static void doWithFields(Class<?> clazz, FieldCallback fc, FieldFilter ff)
-            throws IllegalArgumentException {
+    public static void doWithFields(Class<?> clazz, FieldCallback fc, FieldFilter ff) throws IllegalArgumentException {
 
         // Keep backing up the inheritance hierarchy.
         Class<?> targetClass = clazz;
@@ -505,15 +487,12 @@ public abstract class ReflectionUtils {
                 }
                 try {
                     fc.doWith(field);
-                }
-                catch (IllegalAccessException ex) {
-                    throw new IllegalStateException(
-                            "Shouldn't be illegal to access field '" + field.getName() + "': " + ex);
+                } catch (IllegalAccessException ex) {
+                    throw new IllegalStateException("Shouldn't be illegal to access field '" + field.getName() + "': " + ex);
                 }
             }
             targetClass = targetClass.getSuperclass();
-        }
-        while (targetClass != null && targetClass != Object.class);
+        } while (targetClass != null && targetClass != Object.class);
     }
 
     /**
@@ -530,8 +509,7 @@ public abstract class ReflectionUtils {
             throw new IllegalArgumentException("Destination for field copy cannot be null");
         }
         if (!src.getClass().isAssignableFrom(dest.getClass())) {
-            throw new IllegalArgumentException("Destination class [" + dest.getClass().getName()
-                    + "] must be same or subclass as source class [" + src.getClass().getName() + "]");
+            throw new IllegalArgumentException("Destination class [" + dest.getClass().getName() + "] must be same or subclass as source class [" + src.getClass().getName() + "]");
         }
         doWithFields(src.getClass(), new FieldCallback() {
             public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {

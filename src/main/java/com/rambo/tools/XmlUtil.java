@@ -25,11 +25,10 @@ public class XmlUtil {
     /**
      * Description:将传入xml文本转换成Java对象
      */
-    public static <T> T toBean(String xmlStr, Class<T> cls) {
+    public static <T> T xml2Vo(String xmlStr, Class<T> cls) {
         XStream xstream = new XStream(new DomDriver());
         xstream.processAnnotations(cls);
-        T obj = (T) xstream.fromXML(xmlStr);
-        return obj;
+        return (T) xstream.fromXML(xmlStr);
     }
 
     /**

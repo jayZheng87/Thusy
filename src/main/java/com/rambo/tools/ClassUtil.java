@@ -24,23 +24,32 @@ import static com.rambo.tools.CollectionUtil.createHashSet;
  * 这个类中的每个方法都可以“安全”地处理 <code>null</code> ，而不会抛出
  * <code>NullPointerException</code>。
  * </p>
- *
  */
 public class ClassUtil {
 
-    /** Suffix for array class names: "[]" */
+    /**
+     * Suffix for array class names: "[]"
+     */
     public static final String ARRAY_SUFFIX = "[]";
 
-    /** The package separator character '.' */
+    /**
+     * The package separator character '.'
+     */
     private static final char PACKAGE_SEPARATOR = '.';
 
-    /** The inner class separator character '$' */
+    /**
+     * The inner class separator character '$'
+     */
     private static final char INNER_CLASS_SEPARATOR = '$';
 
-    /** The CGLIB class separator character "$$" */
+    /**
+     * The CGLIB class separator character "$$"
+     */
     public static final String CGLIB_CLASS_SEPARATOR = "$$";
 
-    /** The ".class" file suffix */
+    /**
+     * The ".class" file suffix
+     */
     public static final String CLASS_FILE_SUFFIX = ".class";
 
     /**
@@ -49,8 +58,7 @@ public class ClassUtil {
      * param targetClass
      * return
      */
-    public static int checkInterfaceDeepth(Class<?> pInterface,
-                                           Class<?> targetClass) {
+    public static int checkInterfaceDeepth(Class<?> pInterface, Class<?> targetClass) {
         if (targetClass.isAssignableFrom(pInterface))
             return 0;
         int min = -1;
@@ -70,17 +78,14 @@ public class ClassUtil {
      * param targetClass
      * return
      */
-    public static int checkSupperClassDeepth(Class<?> supperClass,
-                                             Class<?> targetClass) {
+    public static int checkSupperClassDeepth(Class<?> supperClass, Class<?> targetClass) {
         if (!supperClass.isAssignableFrom(targetClass)) {
             return -1;
         }
         if (targetClass.isAssignableFrom(supperClass))
             return 0;
-        int supperDeepth = checkSupperClassDeepth(supperClass,
-                targetClass.getSuperclass()) + 1;
-        int interfaceDeepth = checkInterfaceDeepth(supperClass,
-                targetClass.getSuperclass()) + 1;
+        int supperDeepth = checkSupperClassDeepth(supperClass, targetClass.getSuperclass()) + 1;
+        int interfaceDeepth = checkInterfaceDeepth(supperClass, targetClass.getSuperclass()) + 1;
         if (supperDeepth < interfaceDeepth)
             return supperDeepth;
         return interfaceDeepth;
@@ -88,7 +93,7 @@ public class ClassUtil {
 
     /**
      * 采取驼峰规则
-     *
+     * <p>
      * param simpleName
      * return
      */
@@ -121,7 +126,7 @@ public class ClassUtil {
      * <p>
      * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
-     *
+     * <p>
      * param object 要显示类名的对象
      * return 用于显示的友好类名，如果对象为空，则返回<code>null</code>
      */
@@ -154,7 +159,7 @@ public class ClassUtil {
      * <p>
      * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
-     *
+     * <p>
      * param object 要显示类名的对象
      * return 用于显示的友好类名，如果类对象为空，则返回<code>null</code>
      */
@@ -188,7 +193,7 @@ public class ClassUtil {
      * <p>
      * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
-     *
+     * <p>
      * param javaClassName 要转换的类名
      * return 用于显示的友好类名，如果原类名为空，则返回 <code>null</code> ，如果原类名是非法的，则返回原类名
      */
@@ -198,7 +203,7 @@ public class ClassUtil {
 
     /**
      * 将Java类名转换成友好类名。
-     *
+     * <p>
      * param javaClassName     Java类名
      * param processInnerClass 是否将内联类分隔符 <code>'$'</code> 转换成 <code>'.'</code>
      * return 友好的类名。如果参数非法或空，则返回<code>null</code>。
@@ -302,7 +307,7 @@ public class ClassUtil {
      * <p>
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
-     *
+     * <p>
      * param object 要查看的对象
      * return 简单类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -327,7 +332,7 @@ public class ClassUtil {
      * <p>
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
-     *
+     * <p>
      * param object 要查看的对象
      * return 简单类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -353,7 +358,7 @@ public class ClassUtil {
      * <p>
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
-     *
+     * <p>
      * param clazz 要查看的类
      * return 简单类名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -379,7 +384,7 @@ public class ClassUtil {
      * <p>
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
-     *
+     * <p>
      * param clazz 要查看的类
      * return 简单类名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -405,7 +410,7 @@ public class ClassUtil {
      * <p>
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
-     *
+     * <p>
      * param javaClassName 要查看的类名
      * return 简单类名，如果类名为空，则返回 <code>null</code>
      */
@@ -427,7 +432,7 @@ public class ClassUtil {
      * <p>
      * 本方法和<code>Class.getSimpleName()</code>的区别在于，本方法会保留inner类的外层类名称。
      * </p>
-     *
+     * <p>
      * param javaClassName 要查看的类名
      * return 简单类名，如果类名为空，则返回 <code>null</code>
      */
@@ -457,19 +462,24 @@ public class ClassUtil {
         }
     }
 
-    /** 取得简洁的method描述。 */
+    /**
+     * 取得简洁的method描述。
+     */
     public static String getSimpleMethodSignature(Method method) {
         return getSimpleMethodSignature(method, false, false, false, false);
     }
 
-    /** 取得简洁的method描述。 */
+    /**
+     * 取得简洁的method描述。
+     */
     public static String getSimpleMethodSignature(Method method, boolean withClassName) {
         return getSimpleMethodSignature(method, false, false, withClassName, false);
     }
 
-    /** 取得简洁的method描述。 */
-    public static String getSimpleMethodSignature(Method method, boolean withModifiers, boolean withReturnType,
-                                                  boolean withClassName, boolean withExceptionType) {
+    /**
+     * 取得简洁的method描述。
+     */
+    public static String getSimpleMethodSignature(Method method, boolean withModifiers, boolean withReturnType, boolean withClassName, boolean withExceptionType) {
         if (method == null) {
             return null;
         }
@@ -530,7 +540,7 @@ public class ClassUtil {
      * <p>
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
-     *
+     * <p>
      * param object 要查看的对象
      * return package名，如果对象为 <code>null</code> ，则返回<code>""</code>
      */
@@ -547,7 +557,7 @@ public class ClassUtil {
      * <p>
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
-     *
+     * <p>
      * param clazz 要查看的类
      * return package名，如果类为 <code>null</code> ，则返回<code>""</code>
      */
@@ -564,7 +574,7 @@ public class ClassUtil {
      * <p>
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
-     *
+     * <p>
      * param javaClassName 要查看的类名
      * return package名，如果类名为空，则返回 <code>null</code>
      */
@@ -602,7 +612,7 @@ public class ClassUtil {
      * <pre>
      * ClassUtil.getResourceNameForObjectClass(&quot;This is a string&quot;) = &quot;java/lang/String.class&quot;
      * </pre>
-     *
+     * <p>
      * param object 要显示类名的对象
      * return 指定对象所属类的资源名，如果对象为空，则返回<code>null</code>
      */
@@ -623,7 +633,7 @@ public class ClassUtil {
      * <pre>
      * ClassUtil.getResourceNameForClass(String.class) = &quot;java/lang/String.class&quot;
      * </pre>
-     *
+     * <p>
      * param clazz 要显示类名的类
      * return 指定类的资源名，如果指定类为空，则返回<code>null</code>
      */
@@ -644,7 +654,7 @@ public class ClassUtil {
      * <pre>
      * ClassUtil.getResourceNameForClass(&quot;java.lang.String&quot;) = &quot;java/lang/String.class&quot;
      * </pre>
-     *
+     * <p>
      * param className 要显示的类名
      * return 指定类名对应的资源名，如果指定类名为空，则返回<code>null</code>
      */
@@ -661,7 +671,7 @@ public class ClassUtil {
      * <p>
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
-     *
+     * <p>
      * param object 要查看的对象
      * return package名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -678,7 +688,7 @@ public class ClassUtil {
      * <p>
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
-     *
+     * <p>
      * param clazz 要查看的类
      * return package名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -695,7 +705,7 @@ public class ClassUtil {
      * <p>
      * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
-     *
+     * <p>
      * param className 要查看的类名
      * return package名，如果类名为空，则返回 <code>null</code>
      */
@@ -713,7 +723,7 @@ public class ClassUtil {
 
     /**
      * 取得指定一维数组类.
-     *
+     * <p>
      * param componentType 数组的基础类
      * return 数组类，如果数组的基类为 <code>null</code> ，则返回 <code>null</code>
      */
@@ -723,10 +733,10 @@ public class ClassUtil {
 
     /**
      * 取得指定维数的 <code>Array</code>类.
-     *
+     * <p>
      * param dimension     维数，如果小于 <code>0</code> 则看作 <code>0</code>
      * return 如果维数为0, 则返回基类本身, 否则返回数组类，如果数组的基类为 <code>null</code> ，则返回
-     *         <code>null</code>
+     * <code>null</code>
      */
     public static Class<?> getArrayClass(Class<?> componentClass, int dimension) {
         if (componentClass == null) {
@@ -849,22 +859,23 @@ public class ClassUtil {
         addPrimitive(void.class, "V", Void.class, null, null);
     }
 
-    private static <T> void addPrimitive(Class<T> type, String typeCode, Class<T> wrapperType, String unwrapMethod,
-                                         T defaultValue) {
+    private static <T> void addPrimitive(Class<T> type, String typeCode, Class<T> wrapperType, String unwrapMethod, T defaultValue) {
         PrimitiveInfo<T> info = new PrimitiveInfo<T>(type, typeCode, wrapperType, unwrapMethod, defaultValue);
 
         PRIMITIVES.put(type.getName(), info);
         PRIMITIVES.put(wrapperType.getName(), info);
     }
 
-    /** 代表一个primitive类型的信息。 */
+    /**
+     * 代表一个primitive类型的信息。
+     */
     @SuppressWarnings("unused")
     private static class PrimitiveInfo<T> {
         final Class<T> type;
-        final String   typeCode;
+        final String typeCode;
         final Class<T> wrapperType;
-        final String   unwrapMethod;
-        final T        defaultValue;
+        final String unwrapMethod;
+        final T defaultValue;
 
         public PrimitiveInfo(Class<T> type, String typeCode, Class<T> wrapperType, String unwrapMethod, T defaultValue) {
             this.type = type;
@@ -909,7 +920,7 @@ public class ClassUtil {
      * <li>不满足上述所有条件，则返回 <code>false</code>。</li>
      * </ol>
      * </p>
-     *
+     * <p>
      * param classes     目标类型列表，如果是 <code>null</code> 总是返回 <code>false</code>
      * param fromClasses 参数类型列表， <code>null</code> 表示可赋值给任意非原子类型
      * return 如果可以被赋值，则返回 <code>true</code>
@@ -965,7 +976,7 @@ public class ClassUtil {
      * <li>不满足上述所有条件，则返回 <code>false</code>。</li>
      * </ol>
      * </p>
-     *
+     * <p>
      * param clazz     目标类型，如果是 <code>null</code> 总是返回 <code>false</code>
      * param fromClass 参数类型， <code>null</code> 表示可赋值给任意非原子类型
      * return 如果可以被赋值，则返回 <code>null</code>
@@ -1016,12 +1027,10 @@ public class ClassUtil {
         assignmentTable.put(long.class, assignableSet(long.class, int.class, byte.class, short.class, char.class));
 
         // float可以接受：float, long, int, byte, short, char
-        assignmentTable.put(float.class,
-                assignableSet(float.class, long.class, int.class, byte.class, short.class, char.class));
+        assignmentTable.put(float.class, assignableSet(float.class, long.class, int.class, byte.class, short.class, char.class));
 
         // double可以接受：double, float, long, int, byte, short, char
-        assignmentTable.put(double.class,
-                assignableSet(double.class, float.class, long.class, int.class, byte.class, short.class, char.class));
+        assignmentTable.put(double.class, assignableSet(double.class, float.class, long.class, int.class, byte.class, short.class, char.class));
 
     }
 
@@ -1040,17 +1049,23 @@ public class ClassUtil {
     // 定位class的位置。
     // ==========================================================================
 
-    /** 在class loader中查找class的位置。 */
+    /**
+     * 在class loader中查找class的位置。
+     */
     public static String locateClass(Class<?> clazz) {
         return locateClass(clazz.getName(), clazz.getClassLoader());
     }
 
-    /** 在class loader中查找class的位置。 */
+    /**
+     * 在class loader中查找class的位置。
+     */
     public static String locateClass(String className) {
         return locateClass(className, null);
     }
 
-    /** 在class loader中查找class的位置。 */
+    /**
+     * 在class loader中查找class的位置。
+     */
     public static String locateClass(String className, ClassLoader loader) {
         if (loader == null) {
             loader = Thread.currentThread().getContextClassLoader();
@@ -1073,7 +1088,8 @@ public class ClassUtil {
         return location;
     }
 
-    /** Return the short string name of a Java class in uncapitalized JavaBeans
+    /**
+     * Return the short string name of a Java class in uncapitalized JavaBeans
      * property format. Strips the outer class name in case of an inner class.
      * param clazz the class
      * return the short name rendered in a standard JavaBeans property format
@@ -1085,6 +1101,7 @@ public class ClassUtil {
         shortName = (dotIndex != -1 ? shortName.substring(dotIndex + 1) : shortName);
         return Introspector.decapitalize(shortName);
     }
+
     /**
      * Get the class name without the qualified package name.
      * param className the className to get the short name for
@@ -1101,6 +1118,7 @@ public class ClassUtil {
         shortName = shortName.replace(INNER_CLASS_SEPARATOR, PACKAGE_SEPARATOR);
         return shortName;
     }
+
     /**
      * Get the class name without the qualified package name.
      * param clazz the class to get the short name for
@@ -1109,6 +1127,7 @@ public class ClassUtil {
     public static String getShortName(Class<?> clazz) {
         return getShortName(getQualifiedName(clazz));
     }
+
     /**
      * Return the qualified name of the given class: usually simply
      * the class name, but component type class name + "[]" for arrays.
@@ -1118,8 +1137,7 @@ public class ClassUtil {
     public static String getQualifiedName(Class<?> clazz) {
         if (clazz.isArray()) {
             return getQualifiedNameForArray(clazz);
-        }
-        else {
+        } else {
             return clazz.getName();
         }
     }
@@ -1229,6 +1247,7 @@ public class ClassUtil {
         }
         return interfaces;
     }
+
     /**
      * Check whether the given class is visible in the given ClassLoader.
      * param clazz the class to check (typically an interface)
@@ -1243,8 +1262,7 @@ public class ClassUtil {
             Class<?> actualClass = classLoader.loadClass(clazz.getName());
             return (clazz == actualClass);
             // Else: different interface class found...
-        }
-        catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) {
             // No interface class found...
             return false;
         }
@@ -1273,8 +1291,7 @@ public class ClassUtil {
             if (clazz.isPrimitive() || clazz.isAssignableFrom(String.class)) {
                 isPrimitive = true;
             } else {
-                isPrimitive = ((Class<?>) clazz.getField("TYPE").get(null))
-                        .isPrimitive();
+                isPrimitive = ((Class<?>) clazz.getField("TYPE").get(null)).isPrimitive();
             }
         } catch (Exception e) {
             isPrimitive = false;

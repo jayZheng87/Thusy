@@ -38,7 +38,7 @@ public class ObjectUtil {
      * </pre>
      * <p/>
      * </p>
-     *
+     * <p>
      * param object1 对象1
      * param object2 对象2
      * return 如果相等, 则返回<code>true</code>
@@ -81,7 +81,7 @@ public class ObjectUtil {
 
     /**
      * 检查两个对象是否属于相同类型。<code>null</code>将被看作任意类型。
-     *
+     * <p>
      * param object1 对象1
      * param object2 对象2
      * return 如果两个对象有相同的类型，则返回<code>true</code>
@@ -104,7 +104,7 @@ public class ObjectUtil {
      * ObjectUtil.defaultIfNull("abc", *)        = "abc"
      * ObjectUtil.defaultIfNull(Boolean.TRUE, *) = Boolean.TRUE
      * </pre>
-     *
+     * <p>
      * param object       要测试的对象
      * param defaultValue 默认值
      * return 对象本身或默认对象
@@ -117,7 +117,9 @@ public class ObjectUtil {
     // 判空函数。
     // ==========================================================================
 
-    /** 是否为<code>null</code>、空字符串、或空数组。 */
+    /**
+     * 是否为<code>null</code>、空字符串、或空数组。
+     */
     public static boolean isEmptyObject(Object object) {
         if (object == null) {
             return true;
@@ -142,7 +144,7 @@ public class ObjectUtil {
      * <p>
      * 此方法可以正确地处理多维数组。
      * </p>
-     *
+     * <p>
      * param object 对象
      * return hash值
      */
@@ -182,7 +184,7 @@ public class ObjectUtil {
      * 该方法使用<code>System.identityHashCode</code>来取得hash值，该值不受对象本身的
      * <code>hashCode</code>方法的影响。
      * </p>
-     *
+     * <p>
      * param object 对象
      * return hash值
      */
@@ -201,7 +203,7 @@ public class ObjectUtil {
      * ObjectUtil.identityToString(new int[0])    = "int[]7fa"
      * ObjectUtil.identityToString(new Object[0]) = "java.lang.Object[]7fa"
      * </pre>
-     *
+     * <p>
      * param object 对象
      * return 对象的identity，如果对象是<code>null</code>，则返回<code>null</code>
      */
@@ -224,7 +226,7 @@ public class ObjectUtil {
      * ObjectUtil.identityToString(new int[0], "NULL")      = "int[]7fa"
      * ObjectUtil.identityToString(new Object[0], "NULL")   = "java.lang.Object[]7fa"
      * </pre>
-     *
+     * <p>
      * param object  对象
      * param nullStr 如果对象为<code>null</code>，则返回该字符串
      * return 对象的identity，如果对象是<code>null</code>，则返回指定字符串
@@ -247,11 +249,11 @@ public class ObjectUtil {
      * ObjectUtil.appendIdentityToString(buf, new int[0])    = buf.append("int[]7fa")
      * ObjectUtil.appendIdentityToString(buf, new Object[0]) = buf.append("java.lang.Object[]7fa")
      * </pre>
-     *
+     * <p>
      * param buffer <code>Appendable</code>对象
      * param object 对象
      * return <code>Appendable</code>对象，如果对象为<code>null</code>，则输出
-     *         <code>"null"</code>
+     * <code>"null"</code>
      */
     public static <A extends Appendable> A appendIdentityToString(A buffer, Object object) {
 
@@ -284,7 +286,7 @@ public class ObjectUtil {
      * ObjectUtil.toString(Boolean.TRUE) = "true"
      * ObjectUtil.toString([1, 2, 3])    = "[1, 2, 3]"
      * </pre>
-     *
+     * <p>
      * param object 对象
      * return 对象的<code>toString()</code>的返回值，或空字符串<code>""</code>
      */
@@ -303,7 +305,7 @@ public class ObjectUtil {
      * ObjectUtil.toString(Boolean.TRUE, "null") = "true"
      * ObjectUtil.toString([1, 2, 3], "null")    = "[1, 2, 3]"
      * </pre>
-     *
+     * <p>
      * param object  对象
      * param nullStr 如果对象为<code>null</code>，则返回该字符串
      * return 对象的<code>toString()</code>的返回值，或指定字符串

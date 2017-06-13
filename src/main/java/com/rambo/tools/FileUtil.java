@@ -605,9 +605,9 @@ public class FileUtil {
     }
 
     /**
-      *Description:发布增量文件时生成项目目录结构
+     * Description:发布增量文件时生成项目目录结构
      * sourDir：项目发布路径，destDirPre：输出前缀路径
-      */
+     */
     public static void createIncDir(String sourDir, String destDirPre) {
         File baseDir = new File(sourDir);
         if (baseDir.isDirectory()) {

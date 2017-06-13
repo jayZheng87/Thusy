@@ -87,6 +87,6 @@ public final class JVMRandom extends Random {
 
     public static void main(String[] args) {
         JVMRandom jvmRandom = new JVMRandom();
-        System.out.println("1.100以内：" +jvmRandom.nextInt(100));
+        System.out.println("1.100以内：" + jvmRandom.nextInt(100));
     }
 }

@@ -30,8 +30,7 @@ public final class Resources {
         return getResourceURL(getClassLoader(), resource);
     }
 
-    public static URL getResourceURL(ClassLoader loader, String resource)
-            throws IOException {
+    public static URL getResourceURL(ClassLoader loader, String resource) throws IOException {
         URL url = null;
         if (loader != null) {
             url = loader.getResource(resource);
@@ -45,12 +44,11 @@ public final class Resources {
         return url;
     }
 
-    public static InputStream getResourceAsStream(String resource)
-            throws IOException {
+    public static InputStream getResourceAsStream(String resource) throws IOException {
         return getResourceAsStream(getClassLoader(), resource);
     }
 
-    public static InputStream getResourceAsStream(ClassLoader loader,String resource) throws IOException {
+    public static InputStream getResourceAsStream(ClassLoader loader, String resource) throws IOException {
         InputStream in = null;
         if (loader != null) {
             in = loader.getResourceAsStream(resource);
@@ -64,8 +62,7 @@ public final class Resources {
         return in;
     }
 
-    public static Properties getResourceAsProperties(String resource)
-            throws IOException {
+    public static Properties getResourceAsProperties(String resource) throws IOException {
         Properties props = new Properties();
         InputStream in = null;
         String propfile = resource;
@@ -76,8 +73,7 @@ public final class Resources {
     }
 
 
-    public static Properties getResourceAsProperties(ClassLoader loader,
-                                                     String resource) throws IOException {
+    public static Properties getResourceAsProperties(ClassLoader loader, String resource) throws IOException {
         Properties props = new Properties();
         InputStream in = null;
         String propfile = resource;
@@ -89,19 +85,16 @@ public final class Resources {
 
 
     public static Reader getResourceAsReader(String resource) throws IOException {
-        return (charset == null) ? new InputStreamReader(getResourceAsStream(resource)) :
-                new InputStreamReader(getResourceAsStream(resource), charset);
+        return (charset == null) ? new InputStreamReader(getResourceAsStream(resource)) : new InputStreamReader(getResourceAsStream(resource), charset);
     }
 
 
     public static Reader getResourceAsReader(ClassLoader loader, String resource) throws IOException {
         Reader reader;
         if (charset == null) {
-            reader = new InputStreamReader(
-                    getResourceAsStream(loader, resource));
+            reader = new InputStreamReader(getResourceAsStream(loader, resource));
         } else {
-            reader = new InputStreamReader(
-                    getResourceAsStream(loader, resource), charset);
+            reader = new InputStreamReader(getResourceAsStream(loader, resource), charset);
         }
 
         return reader;

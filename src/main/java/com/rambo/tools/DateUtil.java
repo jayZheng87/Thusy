@@ -2,18 +2,20 @@ package com.rambo.tools;
 
 import org.apache.commons.lang.time.DateFormatUtils;
 
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
  */
 public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
-    private static String[] parsePatterns = {"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm",
-            "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm"};
+    private static String[] parsePatterns = {"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm"};
 
     /**
      * 得到当前日期字符串 格式（yyyy-MM-dd）
@@ -125,7 +127,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 获取过去的天数
-     *
+     * <p>
      * param date
      * return
      */
@@ -136,7 +138,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 获取过去的小时
-     *
+     * <p>
      * param date
      * return
      */
@@ -147,7 +149,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 获取过去的分钟
-     *
+     * <p>
      * param date
      * return
      */
@@ -158,7 +160,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 转换为时间（天,时:分:秒.毫秒）
-     *
+     * <p>
      * param timeMillis
      * return
      */
@@ -173,7 +175,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 获取两个日期之间的天数
-     *
+     * <p>
      * param before
      * param after
      * return
@@ -186,7 +188,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 得到某年某周的第一天
-     *
+     * <p>
      * param year
      * param week
      * return
@@ -206,7 +208,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 得到某年某周的最后一天
-     *
+     * <p>
      * param year
      * param week
      * return
@@ -225,7 +227,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 取得当前日期所在周的第一天
-     *
+     * <p>
      * param date
      * return
      */
@@ -239,7 +241,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 取得当前日期所在周的最后一天
-     *
+     * <p>
      * param date
      * return
      */
@@ -253,28 +255,26 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 取得当前日期所在周的前一周最后一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getLastDayOfLastWeek(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return getLastDayOfWeek(calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.WEEK_OF_YEAR) - 1);
+        return getLastDayOfWeek(calendar.get(Calendar.YEAR), calendar.get(Calendar.WEEK_OF_YEAR) - 1);
     }
 
     /**
      * 返回指定日期的月的第一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getFirstDayOfMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.set(calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH), 1);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
         return calendar.getTime();
     }
 
@@ -320,7 +320,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回指定年月的月的第一天
-     *
+     * <p>
      * param year
      * param month
      * return
@@ -339,22 +339,21 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回指定日期的月的最后一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getLastDayOfMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.set(calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH), 1);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
         calendar.roll(Calendar.DATE, -1);
         return calendar.getTime();
     }
 
     /**
      * 返回指定年月的月的最后一天
-     *
+     * <p>
      * param year
      * param month
      * return
@@ -382,7 +381,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回指定日期的上个月的最后一天
-     *
+     * <p>
      * param date
      * return
      */
@@ -396,20 +395,19 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回指定日期的季的第一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getFirstDayOfQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return getFirstDayOfQuarter(calendar.get(Calendar.YEAR),
-                getQuarterOfYear(date));
+        return getFirstDayOfQuarter(calendar.get(Calendar.YEAR), getQuarterOfYear(date));
     }
 
     /**
      * 返回指定年季的季的第一天
-     *
+     * <p>
      * param year
      * param quarter
      * return
@@ -433,20 +431,19 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回当前日期的季的最后一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getLastDayOfQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return getLastDayOfQuarter(calendar.get(Calendar.YEAR),
-                getQuarterOfYear(date));
+        return getLastDayOfQuarter(calendar.get(Calendar.YEAR), getQuarterOfYear(date));
     }
 
     /**
      * 返回指定年季的季的最后一天
-     *
+     * <p>
      * param year
      * param quarter
      * return
@@ -470,33 +467,31 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回当前日期的季的第一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getFirstDayOfLastQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return getFirstDayOfLastQuarter(calendar.get(Calendar.YEAR),
-                getQuarterOfYear(date));
+        return getFirstDayOfLastQuarter(calendar.get(Calendar.YEAR), getQuarterOfYear(date));
     }
 
     /**
      * 返回指定日期的上一季的最后一天
-     *
+     * <p>
      * param date
      * return
      */
     public static Date getLastDayOfLastQuarter(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return getLastDayOfLastQuarter(calendar.get(Calendar.YEAR),
-                getQuarterOfYear(date));
+        return getLastDayOfLastQuarter(calendar.get(Calendar.YEAR), getQuarterOfYear(date));
     }
 
     /**
      * 返回指定年季的上一季的最后一天
-     *
+     * <p>
      * param year
      * param quarter
      * return
@@ -520,7 +515,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回指定年季的上一季的第一天
-     *
+     * <p>
      * param year
      * param quarter
      * return
@@ -544,7 +539,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 返回指定日期的季度
-     *
+     * <p>
      * param date
      * return
      */
@@ -592,7 +587,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 获取某年某周的星期一
-     *
+     * <p>
      * param y
      * param w
      * return
@@ -609,7 +604,7 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
     /**
      * 获取某年某周的星期天
-     *
+     * <p>
      * param y
      * param w
      * return
@@ -637,6 +632,32 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
         return Integer.parseInt(DateFormatUtils.format(date, "yyyyMMdd"));
     }
 
+    /**
+     * 日期转换为 webservice UTC日期
+     *
+     * @param date 要转换的 util 日期
+     */
+    public static XMLGregorianCalendar dateToWsXML(Date date) {
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        gregorianCalendar.setTime(date);
+        XMLGregorianCalendar xmlGregorianCalendar = null;
+        try {
+            xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendar);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return xmlGregorianCalendar;
+    }
+
+    /**
+     * webservice UTC 日期转换为 util 日期
+     *
+     * @param gc webservice 封装的 XMLGregorianCalendar 日期类型
+     */
+    public static Date wsXMLToDate(XMLGregorianCalendar gc) {
+        GregorianCalendar gregorianCalendar = gc.toGregorianCalendar();
+        return gregorianCalendar.getTime();
+    }
 
     public static void main(String[] args) {
         try {

@@ -6,6 +6,7 @@ public class RMButil {
 
     /**
      * 数字转换为大写字符串
+     *
      * @param val 待转换的 double数字
      * @return String 大写数字
      */
@@ -42,7 +43,8 @@ public class RMButil {
     }
 
     /**
-     *将字符串数字转换为大写
+     * 将字符串数字转换为大写
+     *
      * @param digitStr 需要进行转换的数字
      * @return 转换后的大写
      */

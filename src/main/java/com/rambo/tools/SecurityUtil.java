@@ -10,8 +10,7 @@ import java.security.MessageDigest;
  * Description: （安全相关的操作方法）
  */
 public class SecurityUtil {
-    private static char[] codec_table = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e',
-            'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    private static char[] codec_table = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     /**
      * Description: Base 64 位解密
@@ -78,8 +77,7 @@ public class SecurityUtil {
                     break;
                 case 4:
                     if (bytePos == a.length - 1) {
-                        toReturn
-                                .append(codec_table[((a[bytePos] & 0x0f) << 2) & 0x3f]);
+                        toReturn.append(codec_table[((a[bytePos] & 0x0f) << 2) & 0x3f]);
                     } else {
                         int pos = (((a[bytePos] & 0x0f) << 2) | ((a[bytePos + 1] & 0xc0) >> 6)) & 0x3f;
                         toReturn.append(codec_table[pos]);
@@ -87,8 +85,7 @@ public class SecurityUtil {
                     break;
                 case 6:
                     if (bytePos == a.length - 1) {
-                        toReturn
-                                .append(codec_table[((a[bytePos] & 0x03) << 4) & 0x3f]);
+                        toReturn.append(codec_table[((a[bytePos] & 0x03) << 4) & 0x3f]);
                     } else {
                         int pos = (((a[bytePos] & 0x03) << 4) | ((a[bytePos + 1] & 0xf0) >> 4)) & 0x3f;
                         toReturn.append(codec_table[pos]);
