@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
@@ -657,6 +658,23 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
     public static Date wsXMLToDate(XMLGregorianCalendar gc) {
         GregorianCalendar gregorianCalendar = gc.toGregorianCalendar();
         return gregorianCalendar.getTime();
+    }
+
+    /**
+     * 将格式为 Thu Jun 15 16:29:24 CST 2017 的字符串格式化为业务中需要的格式日期字符串
+     *
+     * @param localeEnglishDate 待转换的格式为 Thu Jun 15 16:29:24 CST 2017 的日期字符串
+     * @param pattern  业务中需要的日期格式
+     */
+    public static String localeEnglishDateToFormatDate(String localeEnglishDate, String pattern){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+        Date parse = null;
+        try {
+            parse = simpleDateFormat.parse(localeEnglishDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return DateFormatUtils.format(parse, pattern);
     }
 
     public static void main(String[] args) {
