@@ -24,6 +24,13 @@
             <version>2.6</version>
         </dependency>
 
+        <!--apache beanutils 反射基础工具包-->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+
         <!--apache codec 加解密工具包-->
         <dependency>
             <groupId>commons-codec</groupId>
