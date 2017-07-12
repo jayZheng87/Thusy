@@ -664,9 +664,9 @@ public class DateUtil extends org.apache.commons.lang.time.DateUtils {
      * 将格式为 Thu Jun 15 16:29:24 CST 2017 的字符串格式化为业务中需要的格式日期字符串
      *
      * @param localeEnglishDate 待转换的格式为 Thu Jun 15 16:29:24 CST 2017 的日期字符串
-     * @param pattern  业务中需要的日期格式
+     * @param pattern           业务中需要的日期格式
      */
-    public static String localeEnglishDateToFormatDate(String localeEnglishDate, String pattern){
+    public static String localeEnglishDateToFormatDate(String localeEnglishDate, String pattern) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
         Date parse = null;
         try {

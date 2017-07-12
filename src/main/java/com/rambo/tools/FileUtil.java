@@ -12,10 +12,11 @@ import static com.rambo.tools.StringUtil.trimToNull;
 
 public class FileUtil {
     private static final Pattern schemePrefixPattern = Pattern.compile("(file:*[a-z]:)|(\\w+://.+?/)|((jar|zip):.+!/)|(\\w+:)", Pattern.CASE_INSENSITIVE);
+
     /**
      * 从指定文件，指定编码读取文件
      *
-     * @param file 待读入的文件
+     * @param file     待读入的文件
      * @param encoding 读入编码
      */
     public static String readFileContent(File file, String encoding) throws Exception {
@@ -26,7 +27,7 @@ public class FileUtil {
     /**
      * 从指定输入流，指定编码读取文件
      *
-     * @param stream 待读入的输入流
+     * @param stream   待读入的输入流
      * @param encoding 读入编码
      */
     public static String readStreamContent(InputStream stream, String encoding) throws Exception {
@@ -43,7 +44,7 @@ public class FileUtil {
     /**
      * 输出代码到指定目录
      *
-     * @param file  要输出的文件
+     * @param file          要输出的文件
      * @param outputContext 输出内容
      */
     public static void writeFileContent(File file, String outputContext) throws IOException {
@@ -617,7 +618,8 @@ public class FileUtil {
 
     /**
      * 发布增量文件时生成项目目录结构
-     * @param sourDir 项目发布路径
+     *
+     * @param sourDir    项目发布路径
      * @param destDirPre 输出前缀路径
      */
     public static void createIncDir(String sourDir, String destDirPre) {
@@ -645,6 +647,6 @@ public class FileUtil {
         System.out.println("4. 格式化路径：" + normalizePath(resourceAsFile.getAbsolutePath()) + "," + resourceAsFile.getAbsolutePath());
         System.out.println("3. 获取文件后缀：" + getExtension(resourceAsFile.getName()));
 
-        writeFileContent(resourceAsFile,"abc");
+        writeFileContent(resourceAsFile, "abc");
     }
 }
