@@ -3,9 +3,7 @@ package com.rambo.tools;
 import com.rambo.exceptions.IllegalPathException;
 import com.rambo.filter.incFileFilter;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,12 +12,11 @@ import static com.rambo.tools.StringUtil.trimToNull;
 
 public class FileUtil {
     private static final Pattern schemePrefixPattern = Pattern.compile("(file:*[a-z]:)|(\\w+://.+?/)|((jar|zip):.+!/)|(\\w+:)", Pattern.CASE_INSENSITIVE);
-
     /**
      * 从指定文件，指定编码读取文件
      *
-     * @param file
-     * @param encoding
+     * @param file 待读入的文件
+     * @param encoding 读入编码
      */
     public static String readFileContent(File file, String encoding) throws Exception {
         FileInputStream fis = new FileInputStream(file);
@@ -29,8 +26,8 @@ public class FileUtil {
     /**
      * 从指定输入流，指定编码读取文件
      *
-     * @param stream
-     * @param encoding
+     * @param stream 待读入的输入流
+     * @param encoding 读入编码
      */
     public static String readStreamContent(InputStream stream, String encoding) throws Exception {
         StringBuilder content = new StringBuilder("");
@@ -41,6 +38,21 @@ public class FileUtil {
             content.append(temp);
         }
         return content.toString();
+    }
+
+    /**
+     * 输出代码到指定目录
+     *
+     * @param file  要输出的文件
+     * @param outputContext 输出内容
+     */
+    public static void writeFileContent(File file, String outputContext) throws IOException {
+        boolean b = !file.exists() ? file.createNewFile() : file.delete();
+
+        FileOutputStream fop = new FileOutputStream(file);
+        fop.write(outputContext.getBytes());
+        fop.flush();
+        fop.close();
     }
 
     /**
@@ -554,8 +566,7 @@ public class FileUtil {
     /**
      * 删除某个文件夹下的所有文件夹和文件
      *
-     * @param delpath
-     * @return boolean
+     * @param delpath 待删除的文件夹路劲
      */
     public static boolean deletefile(String delpath) throws Exception {
         delete(new File(delpath));
@@ -565,7 +576,7 @@ public class FileUtil {
     /**
      * 删除某个文件夹下的所有文件夹和文件
      *
-     * @param file
+     * @param file 待删除的文件夹
      */
     public static void delete(File file) throws Exception {
         if (file != null && file.exists()) {
@@ -605,8 +616,9 @@ public class FileUtil {
     }
 
     /**
-     * Description:发布增量文件时生成项目目录结构
-     * sourDir：项目发布路径，destDirPre：输出前缀路径
+     * 发布增量文件时生成项目目录结构
+     * @param sourDir 项目发布路径
+     * @param destDirPre 输出前缀路径
      */
     public static void createIncDir(String sourDir, String destDirPre) {
         File baseDir = new File(sourDir);
@@ -622,6 +634,7 @@ public class FileUtil {
         }
     }
 
+
     public static void main(String[] args) throws Exception {
         File resourceAsFile = Resources.getResourceAsFile(Thread.currentThread().getContextClassLoader(), "fileUtil.txt");
         InputStream resourceAsStream = Resources.getResourceAsStream(Thread.currentThread().getContextClassLoader(), "fileUtil.txt");
@@ -629,7 +642,9 @@ public class FileUtil {
         File file = new File(String.valueOf(resourceAsFile));
         System.out.println("1. 从指定地址使用特定编码读取文件：" + readFileContent(file, "UTF-8"));
         System.out.println("2. 从指定输入流使用特定编码读取文件：" + readStreamContent(resourceAsStream, "UTF-8"));
-        System.out.println("4. 格式化路径：" + normalizePath(resourceAsFile.getAbsolutePath()));
+        System.out.println("4. 格式化路径：" + normalizePath(resourceAsFile.getAbsolutePath()) + "," + resourceAsFile.getAbsolutePath());
         System.out.println("3. 获取文件后缀：" + getExtension(resourceAsFile.getName()));
+
+        writeFileContent(resourceAsFile,"abc");
     }
 }
