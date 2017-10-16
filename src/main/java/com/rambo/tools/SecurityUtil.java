@@ -7,37 +7,44 @@ import java.security.MessageDigest;
 
 /**
  * ClassName: SecurityUtils
- * Description: （安全相关的操作方法）
+ * Description: （安全相关的操作方法）'
+ * Create by Yet on 2017/10/11
  */
 public class SecurityUtil {
     private static char[] codec_table = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     /**
-     * Description: Base 64 位解密
-     * eg: decodeStr("NjMwMTA0MDEyMTEwMDAyMDM5LDIwMTUwNg==")
+     * Base 64 位解密
+     *
+     * @param source 待解密字符串
+     * @return 解密结果
      */
-    public static String toBase64Decode(String pwd) {
-        byte[] debytes = Base64.decodeBase64(pwd.getBytes());
+    public static String toBase64Decode(String source) {
+        byte[] debytes = Base64.decodeBase64(source.getBytes());
         return new String(debytes);
     }
 
     /**
-     * Description: Base 64 加密
-     * eg:encodeStr("630104012110002039,201506")
+     * Base 64 加密
+     *
+     * @param source 待加密字符串
+     * @return 加密结果
      */
-    public static String toBase64Encode(String pwd) {
-        byte[] enbytes = Base64.encodeBase64Chunked(pwd.getBytes());
+    public static String toBase64Encode(String source) {
+        byte[] enbytes = Base64.encodeBase64Chunked(source.getBytes());
         return new String(enbytes);
     }
 
     /**
-     * Description: MD5 加密字符串
-     * eg: encryptMD5("nxccsoft2015")
+     * MD5 加密字符串
+     *
+     * @param source
+     * @return 加密后的字符串
      */
-    public static String encryptMD5(String s) {
+    public static String encryptMD5(String source) {
         try {
             MessageDigest messagedigest = MessageDigest.getInstance("MD5");
-            messagedigest.update(s.getBytes("UTF8"));
+            messagedigest.update(source.getBytes("UTF8"));
             byte abyte0[] = messagedigest.digest();
             return encode(abyte0);
         } catch (Exception e) {
@@ -47,8 +54,11 @@ public class SecurityUtil {
     }
 
     /**
-     * Description: MD5 加密后的字符串进行对比
-     * eg:   checkMD5Str("nxccsoft2015", "1OrGLHIjO1wQJO+sXrM2gg==")
+     * MD5 加密后的字符串进行校验
+     *
+     * @param dest   目标字符串
+     * @param source 对比字符串
+     * @return 对比结果
      */
     public static boolean checkMD5Str(String dest, String source) {
         if (StringUtils.isEmpty(dest) || StringUtils.isEmpty(source)) {
@@ -57,13 +67,11 @@ public class SecurityUtil {
         return encryptMD5(dest).equals(source);
     }
 
-    /**
-     * Description: 自用 base64加密
-     */
-    public static String encode(byte[] a) {
+
+    private static String encode(byte[] a) {
         int totalBits = a.length * 8;
         int nn = totalBits % 6;
-        int curPos = 0;// process bits   
+        int curPos = 0;// process bits
         StringBuffer toReturn = new StringBuffer();
         while (curPos < totalBits) {
             int bytePos = curPos / 8;
@@ -107,8 +115,8 @@ public class SecurityUtil {
 
     public static void main(String[] args) {
         try {
-            System.out.println("1. MD5 加密:" + encryptMD5("rambo2017"));
-            System.out.println("2. MD5 加密字符串对比:" + checkMD5Str("rambo2017", "W2ApG7CToTsObdO17mEk1w=="));
+            System.out.println("1. MD5 加密:" + encryptMD5("123"));
+            System.out.println("2. MD5 加密字符串对比:" + checkMD5Str("2017", "W2ApG7CToTsObdO17mEk1w=="));
             System.out.println("3. Base64 加密字符串:" + toBase64Encode("123301000000000,201508"));
             System.out.println("4. Base64 解密字符串:" + toBase64Decode("1fb3b66e1ddf0286c8c2d84f85f9a393f945ad1f64ffc177e2506ff1"));
         } catch (Exception e) {
