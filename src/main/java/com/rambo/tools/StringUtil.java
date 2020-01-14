@@ -18,7 +18,7 @@ public class StringUtil extends org.apache.commons.lang.StringUtils {
      * Description:除去空字符串，并消除两边空格
      */
     public static Object dealNull(Object str) {
-        return str == null ? "" : str;
+        return str == null ? "" : str.trim();
     }
 
     /**
